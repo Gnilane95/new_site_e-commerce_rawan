@@ -1,0 +1,35 @@
+body{
+    font-family: 'Slabo 27px', serif;
+}
+.hero{
+    background-image: url("/public/img/bijoux.jpg"), url("/public/img/abaya-femme.webp");
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.overlay{
+    background-color: #000;
+    /* background: linear-gradient(90deg, rgba(125,110,20,1) 0%, rgba(9,124,53,1) 46%, rgba(0,212,255,1) 100%); */
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* top: 0; */
+}
+.about{
+    background-image: url("/public/img/fondMarbre2.png");
+    height: 50vh;
+    background-position: center;
+    /* background-size: cover; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
