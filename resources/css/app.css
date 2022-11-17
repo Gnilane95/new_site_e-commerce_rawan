@@ -1,5 +1,5 @@
 body{
-    font-family: 'Slabo 27px', serif;
+    font-family: 'Roboto', sans-serif;
 }
 .hero{
     background-image: url("/public/img/bijoux.jpg"), url("/public/img/abaya-femme.webp");
