@@ -7,22 +7,21 @@
     <thead>
       <tr>
         <th></th>
-        <th>Titre</th>
+        <th>Nom</th>
+        <th>Prix</th>
+        <th>Stock</th>
         <th>Date</th>
-        <th>Publié</th>
+
       </tr>
     </thead>
     <tbody>
-        @forelse ($posts as $post)
+        @forelse ($bijoux as $bijou)
             <tr>
                 <th>{{ $index++ }}</th>
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->created_at->format('d/m/Y') }}</td>
-                @if ($post->is_published == 0)
-                    <td>Non</td>
-                @else
-                    <td>Oui</td>
-                @endif
+                <td>{{ $bijou->name }}</td>
+                <td>{{ $bijou->price }}€</td>
+                <td>{{ $bijou->stock }}</td>
+                <td>{{ $bijou->created_at->format('d/m/Y') }}</td>
             </tr>
         @empty
             <tr>

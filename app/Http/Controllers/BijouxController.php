@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bijou;
 use Illuminate\Http\Request;
 
 class BijouxController extends Controller
@@ -13,7 +14,8 @@ class BijouxController extends Controller
      */
     public function index()
     {
-        return view('pages.bijoux');
+        $bijoux = Bijou::orderBy('updated_at','desc')->paginate(4);
+        return view('pages.bijoux', compact('bijoux'));
     }
 
     /**
@@ -80,5 +82,16 @@ class BijouxController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Return all bijoux view
+     * 
+     * @return void
+     */
+    public function allBijoux()
+    {
+        $bijoux = Bijou::orderBy('updated_at', 'DESC')->paginate(10) ;
+        return view('pages.all-bijoux', compact('bijoux'));
     }
 }

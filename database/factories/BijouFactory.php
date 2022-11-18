@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bijou>
  */
-class ProductFactory extends Factory
+class BijouFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,10 +20,7 @@ class ProductFactory extends Factory
             'name'=>fake()->sentence(2),
             'price'=>fake()->numberBetween(35,500),
             'desc'=>fake()->paragraph(5),
-            'SKU'=>fake()->numerify(),
             'url_img' =>fake()->imageUrl(640, 480, 'persons', true),
-            'category'=>fake()->sentence(2),
-
         ];
     }
 }

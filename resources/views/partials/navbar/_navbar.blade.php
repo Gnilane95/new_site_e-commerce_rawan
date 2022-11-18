@@ -8,7 +8,7 @@
         </a>
     {{-- nav items --}}
     <div class="space-x-5 flex ">
-        <a href="{{ route('bijoux') }}" class="hover:text-primary">Bijoux</a>
+        <a href="{{ route('bijoux.index') }}" class="hover:text-primary">Bijoux</a>
         <a href="{{ route('femmes') }}" class="hover:text-primary">Collections femmes</a>
         <a href="{{ route('hommes') }}" class="hover:text-primary">Abayas hommes</a>
         <a href="{{ route('enfants') }}" class="hover:text-primary">Enfants</a>

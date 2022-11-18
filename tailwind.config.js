@@ -24,5 +24,5 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    presets: [require('./tailwind-preset.js')],
 };

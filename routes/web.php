@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ArticleController::class, 'index'])->name('home');
 Route::resource('articles', ArticleController::class);
-Route::get('/bijoux',[BijouxController::class, 'index'])->name('bijoux');
+Route::resource('bijoux', BijouxController::class);
 Route::get('/collectionsFemme',[FemmeController::class, 'index'])->name('femmes');
 Route::get('/abayasHomme',[HommeController::class, 'index'])->name('hommes');
 Route::get('/enfants',[EnfantController::class, 'index'])->name('enfants');
@@ -30,5 +30,6 @@ Route::get('/blog',[PostController::class, 'index'])->name('blog');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/all-bijoux',[BijouxController::class, 'allBijoux'])->name('bijoux.all');
 
 require __DIR__.'/auth.php';
