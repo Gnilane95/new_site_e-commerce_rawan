@@ -1,12 +1,12 @@
 @php
-    $styleLink="font-bold hover:text-white block pb-5 text-gray-700 text-lg"
+    $styleLink="font-bold hover:text-white block pb-5 text-white text-lg"
 @endphp
-<div class="bg-gradient-to-b from-primary to-secondary min-h-screen max-w-xl px-10 py-6">
-    <div class="flex items-center space-x-3">
+<div class="bg-gray-700 px-5 min-h-screen sticky w-[25%] py-6">
+    <div class="flex items-center  space-x-1">
         <img src="img/logo-rawan-removebg-preview.png" alt="" class="w-14">
-        <p class="text-3xl font-black text-gray-700">Dashboard</p>
+        <h1 class="text-2xl font-black text-white">Dashboard</h1>
     </div>
-    <hr class="my-10 w-full">
+    <hr class="my-10">
     <div class="">
         <a href="{{ route('bijoux.all') }}" class="{{ $styleLink }}">Liste des bijoux</a>
     </div>

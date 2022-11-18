@@ -25,7 +25,8 @@ class BijouxController extends Controller
      */
     public function create()
     {
-        //
+        $bijoux = Bijou::all();
+        return view('pages.create-bijoux', compact('bijoux'));
     }
 
     /**
@@ -36,7 +37,26 @@ class BijouxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->name);
+        $request->validate([
+            'name'=>'required|string|max:200',
+            'price'=>'required|numeric|',
+            'desc'=>'required|max:1000|string',
+            'stock'=>'required|integer',
+            'category'=>'required',
+            'url_img'=>'required|image|mimes:png,jpg,jpeg|max:5000',
+        ]);
+        $validateImg = $request->file('url_img')->store('images');
+        Bijou::create([
+            'name'=>$request->name,
+            'price'=>$request->price,
+            'desc'=>$request->desc,
+            'stock'=>$request->stock,
+            'category'=>$request->category,
+            'url_img'=>$validateImg,
+            'created_at'=>now()
+        ]);
+        return redirect()->route('bijoux.all')->with('status', 'Bijou ajouté');
     }
 
     /**
@@ -56,9 +76,9 @@ class BijouxController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Bijou $bijou)
     {
-        //
+        return view('pages.edit-bijoux', compact('bijou'));
     }
 
     /**
