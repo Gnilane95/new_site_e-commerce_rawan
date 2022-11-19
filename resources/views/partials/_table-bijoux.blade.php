@@ -26,7 +26,7 @@
                 <td>{{ $bijou->stock }}</td>
                 <td>{{ $bijou->category }}</td>
                 <td>{{ $bijou->created_at->format('d/m/Y') }}</td>
-                <td class="text-center text-secondary"><a href="{{ route('bijoux.edit') }}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                <td class="text-center text-secondary"><a href="{{ route('bijoux.edit', $bijou->id)}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
                 <td class="text-center text-red-400"><a href=""><i class="fa-solid fa-delete-left"></i></a></td>
             </tr>
         @empty

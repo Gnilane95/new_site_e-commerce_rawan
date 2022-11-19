@@ -1,18 +1,20 @@
-<x-layouts.layout-dashboard title="Ajouter un bijou">
+<x-layouts.layout-dashboard title="Modifier un bijou">
     <div class="flex">
         <x-layouts.dashboardNav-left/>
         <div class="w-full bg-gray-100">
-            <x-dashboard-top currentPage="Ajouter un bijou"/>
+            <x-dashboard-top currentPage="Edit"/>
             <div class="py-10 mx-10">
-                <h1 class="font-black text-4xl text-gray-700 pb-5">Nouveau Bijou</h1>
-                <form action="{{ route('bijoux.store') }}" method="POST" enctype="multipart/form-data">
+                <h1 class="font-black text-4xl text-gray-700 pb-5">Modifier un bijou</h1>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {{-- {{ route('bijoux.update', ['bijoux' => $bijoux->id]) }} --}}
                     @csrf
+                    @method('PUT')
                     <div class="w-[50%]">
                         {{-- name --}}
-                        <input type="text" name="name" placeholder="Nom du bijou" id="" class="block w-full rounded-lg border-gray-400" value="{{ old('name') }}"> 
+                        <input type="text" name="name" placeholder="Nom du bijou" id="" class="block w-full rounded-lg border-gray-400" value="{{ old('name', $bijou->name) }}"> 
                         <x-error-msg name="name" />
                         {{-- Price --}}
-                        <input type="number" name="price" placeholder="Prix" id="" class="mt-5  block w-full rounded-lg border-gray-400" value="{{ old('price') }}"> 
+                        <input type="number" name="price" placeholder="Prix" id="" class="mt-5  block w-full rounded-lg border-gray-400" value="{{ old('price', $bijou->price) }}"> 
                         <x-error-msg name="price" />
                         {{-- description --}}
                         <div class="mt-5">
@@ -44,7 +46,7 @@
                             <x-error-msg name="url_img" />
                         </div>
 
-                        <button type="submit" class="btn bg-secondary border-none mt-6 w-full">Ajouter</button>
+                        <button type="submit" class="btn bg-secondary border-none mt-6 w-full">Modifier</button>
                     </div>
                 </form>
             </div>

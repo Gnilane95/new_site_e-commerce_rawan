@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bijou;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BijouxController extends Controller
 {
@@ -78,7 +79,7 @@ class BijouxController extends Controller
      */
     public function edit(Bijou $bijou)
     {
-        return view('pages.edit-bijoux', compact('bijou'));
+        return view('pages.edit-bijou', compact('bijou'));
     }
 
     /**
@@ -88,9 +89,33 @@ class BijouxController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Bijou $bijou)
     {
-        //
+        if ($request->hasFile('url_img')) {
+            //Delete previous img
+            Storage::delete($bijou->url_img);
+            //Store the new img
+            $bijou->url_img = $request->file('url_img')->store('images');
+        }
+        $request->validate([
+            'name'=>'required|string|max:200',
+            'price'=>'required|numeric|',
+            'desc'=>'required|max:1000|string',
+            'stock'=>'required|integer',
+            'category'=>'required',
+            'url_img'=>'required|image|sometimes|mimes:png,jpg,jpeg|max:5000',
+        ]);
+
+        $bijou->update ([
+            'name'=>$request->name,
+            'price'=>$request->price,
+            'desc'=>$request->desc,
+            'stock'=>$request->stock,
+            'category'=>$request->category,
+            'url_img'=>$bijou->url_img,
+            'updated_at'=>now()
+        ]);
+        return redirect()->route('bijoux.all', $bijou->id)->with('status', 'Bijou modifié');
     }
 
     /**
