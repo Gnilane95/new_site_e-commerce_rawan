@@ -1,13 +1,13 @@
 @php
     $styleLink="font-bold hover:text-orange-600 hover:underline underline-offset-4"
 @endphp
-<nav class="flex justify-between px-10 items-center font-bold">
+<nav class="flex justify-between px-10 py-5 items-center font-bold">
     {{-- logo --}}
         <a href="/">
-            <img src="img/logo-rawanpng.png" alt="Logo Rawan" class="w-36">
+            <img src="img/logo-rawanpng.png" alt="Logo Rawan" class="w-20">
         </a>
     {{-- nav items --}}
-    <div class="space-x-5 flex ">
+    <div class="space-x-5 flex text-gray-600">
         <a href="{{ route('bijoux.index') }}" class="hover:text-primary">Bijoux</a>
         <a href="{{ route('femmes') }}" class="hover:text-primary">Collections femmes</a>
         <a href="{{ route('hommes') }}" class="hover:text-primary">Abayas hommes</a>
@@ -16,10 +16,10 @@
     </div>
     {{-- other items --}}
     <div class="space-x-5 flex items-center">
-        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+        <a href=""><i class="fa-solid fa-magnifying-glass text-gray-600"></i></a>
+        <a href=""><i class="fa-solid fa-bag-shopping text-gray-600"></i></a>
         @guest
-            <a href="{{ route('login') }}"><i class="fa-regular fa-user"></i></a>
+            <a href="{{ route('login') }}"><i class="fa-regular fa-user text-gray-600"></i></a>
         @endguest
         @auth
         <div class="flex justify-center gap-7 items-center">

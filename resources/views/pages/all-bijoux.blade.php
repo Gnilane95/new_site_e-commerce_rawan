@@ -6,7 +6,7 @@
             <div class="py-10 mx-10">
                 <div class="flex justify-between items-center">
                     <h1 class=" font-black text-4xl text-gray-700 ">Mes Bijoux</h1>
-                    <a href="{{ route('bijoux.create') }}" class="btn bg-secondary border-none">Ajouter</a>
+                    <a href="{{ route('bijoux.create') }}" class="btn  border-none">Ajouter</a>
                 </div>
                 <div class="mt-10">
                     @include('partials._table-bijoux')

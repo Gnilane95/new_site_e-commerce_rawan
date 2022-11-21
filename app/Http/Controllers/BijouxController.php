@@ -15,7 +15,7 @@ class BijouxController extends Controller
      */
     public function index()
     {
-        $bijoux = Bijou::orderBy('updated_at','desc')->paginate(4);
+        $bijoux = Bijou::orderBy('updated_at','desc')->paginate(10) ;
         return view('pages.bijoux', compact('bijoux'));
     }
 
@@ -66,9 +66,9 @@ class BijouxController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Bijou $bijou)
     {
-        //
+        return view('pages.bijoux', compact('bijou'));
     }
 
     /**
@@ -124,9 +124,10 @@ class BijouxController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Bijou $bijou)
     {
-        //
+        $bijou->delete();
+        return redirect()->route('bijoux.all')->with('status', 'Bijou supprimé');
     }
 
     /**
