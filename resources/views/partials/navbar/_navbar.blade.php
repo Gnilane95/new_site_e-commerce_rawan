@@ -4,11 +4,12 @@
 <nav class="flex justify-between px-10 py-5 items-center font-bold">
     {{-- logo --}}
         <a href="/">
-            <img src="img/logo-rawanpng.png" alt="Logo Rawan" class="w-20">
+            <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="Logo Rawan" class="w-20">
         </a>
     {{-- nav items --}}
-    <div class="space-x-5 flex text-gray-600">
-        <a href="{{ route('bijoux.index') }}" class="hover:text-primary">Bijoux</a>
+    <div class="nav_menu space-x-5 flex text-gray-600">
+        {{-- ${ Route::getCurrentRoute()->getName() === "bijoux" ? "bg-gray-200": "" } --}}
+        <a href="{{ route('bijoux.index') }}" active={true} class="hover:text-primary"> Bijoux</a>
         <a href="{{ route('femmes') }}" class="hover:text-primary">Collections femmes</a>
         <a href="{{ route('hommes') }}" class="hover:text-primary">Abayas hommes</a>
         <a href="{{ route('enfants') }}" class="hover:text-primary">Enfants</a>
@@ -22,10 +23,17 @@
             <a href="{{ route('login') }}"><i class="fa-regular fa-user text-gray-600"></i></a>
         @endguest
         @auth
-        <div class="flex justify-center gap-7 items-center">
-            {{-- <p>{{ Auth::user()->name }}</p> --}}
-            <x-btn-logout/>
+        <div class="dropdown dropdown-end flexh items-center">
+            <p class="text-gray-600 text-center">Bienvenue</p>
+            <label tabindex="0" class="cursor-pointer text-secondary-dark underline border-none">{{ Auth::user()->name }}</label>
+            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                <li >
+                    <a href="{{ route('users.show',$userId) }}">Mon profil</a>
+                </li>
+                <li ><x-btn-logout/></li>
+            </ul>
         </div>
+        
         @endauth
         {{-- @guest
             <a href="{{ route('login') }}" class="{{ $styleLink }}">Se connecter</a>

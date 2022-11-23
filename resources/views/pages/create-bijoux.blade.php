@@ -30,7 +30,7 @@
                         {{-- category --}}
                         <div class="mt-5">
                             <select name="category" id="" class="select select-bordered w-full">
-                                <option disabled selected value="">Choisir une catégorie</option>
+                                <option disabled selected>Choisir une catégorie</option>
                                 <option>Aciers Inoxydables</option>
                                 <option>Argents</option>
                                 <option>Bijoux personalisés</option>
@@ -41,6 +41,13 @@
                         <div class="mt-5">
                             <label for="">Image :</label>
                             <input class="block w-full rounded-lg border-gray-400 mt-3" type="file" name="url_img" id="" >
+                            <x-error-msg name="url_img" />
+                        </div>
+
+                        {{-- Other img --}}
+                        <div class="">
+                            <label for="url_img">Autres images :</label>
+                            <input class="block w-full rounded-lg border-gray-400 mt-5" type="file" name="images[]" id="" multiple>
                             <x-error-msg name="url_img" />
                         </div>
 

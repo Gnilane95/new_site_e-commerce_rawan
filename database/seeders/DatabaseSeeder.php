@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Avi;
 use App\Models\Bijou;
 use App\Models\Image;
 use App\Models\PostBlog;
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
         PostCategory::factory(10)->create();
         Bijou::factory(10)->create();
         Image::factory(10)->create();
+        Avi::factory(10)->create();
         // \App\Models\Post::factory(5)->create();
         // Post::factory(30)->create();
 

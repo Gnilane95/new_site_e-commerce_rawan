@@ -29,6 +29,9 @@ body{
     justify-content: center;
     align-items: center;
 }
+.nav_menu > a:active{
+    background-color: brown
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

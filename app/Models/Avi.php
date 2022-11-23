@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\Bijou;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Image extends Model
+class Avi extends Model
 {
     use HasFactory;
     protected $guarded = [];
@@ -14,5 +14,9 @@ class Image extends Model
     public function bijou()
     {
         return $this->belongsTo(Bijou::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

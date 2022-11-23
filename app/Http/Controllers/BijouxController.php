@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bijou;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,7 +16,7 @@ class BijouxController extends Controller
      */
     public function index()
     {
-        $bijoux = Bijou::orderBy('updated_at','desc')->paginate(10) ;
+        $bijoux = Bijou::orderBy('updated_at','desc')->paginate(12) ;
         return view('pages.bijoux', compact('bijoux'));
     }
 
@@ -41,14 +42,15 @@ class BijouxController extends Controller
         // dd($request->name);
         $request->validate([
             'name'=>'required|string|max:200',
-            'price'=>'required|numeric|',
+            'price'=>'required',
             'desc'=>'required|max:1000|string',
             'stock'=>'required|integer',
             'category'=>'required',
             'url_img'=>'required|image|mimes:png,jpg,jpeg|max:5000',
         ]);
+
         $validateImg = $request->file('url_img')->store('images');
-        Bijou::create([
+        $new_bijou = Bijou::create([
             'name'=>$request->name,
             'price'=>$request->price,
             'desc'=>$request->desc,
@@ -57,6 +59,27 @@ class BijouxController extends Controller
             'url_img'=>$validateImg,
             'created_at'=>now()
         ]);
+
+         // 1-Verify if user select image or not
+         if($request->has('images')){
+            // 2-Stock all images selected in array
+            $imagesSelected = $request->file('images');
+            // 3- Loop storage each image
+            foreach ($imagesSelected as $images) {
+                // 4-Give a new name for each image
+                $image_name = md5(rand(1000, 10000)). '.' . strtolower($images->extension());
+                // 5-Set a passname
+                $path_upload = 'img/images';
+                $images->move(public_path($path_upload), $image_name);
+
+                Image::create([
+                    "slug"=>$path_upload .'/'.$image_name,
+                    "created_at"=>now(),
+                    "bijou_id"=> $new_bijou->id,
+                ]);
+            }
+        }
+
         return redirect()->route('bijoux.all')->with('status', 'Bijou ajouté');
     }
 
@@ -66,9 +89,10 @@ class BijouxController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Bijou $bijou)
+    public function show(Bijou $bijoux)
     {
-        return view('pages.bijoux', compact('bijou'));
+        // dd($bijoux);
+        return view('pages.show-bijoux', compact('bijoux'));
     }
 
     /**
@@ -77,9 +101,10 @@ class BijouxController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bijou $bijou)
+    public function edit(Bijou $bijoux)
     {
-        return view('pages.edit-bijou', compact('bijou'));
+        // dd($bijoux->all());
+        return view('pages.edit-bijou', compact('bijoux'));
     }
 
     /**
@@ -89,13 +114,13 @@ class BijouxController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Bijou $bijou)
+    public function update(Request $request,Bijou $bijoux)
     {
         if ($request->hasFile('url_img')) {
             //Delete previous img
-            Storage::delete($bijou->url_img);
+            Storage::delete($bijoux->url_img);
             //Store the new img
-            $bijou->url_img = $request->file('url_img')->store('images');
+            $bijoux->url_img = $request->file('url_img')->store('images');
         }
         $request->validate([
             'name'=>'required|string|max:200',
@@ -106,16 +131,36 @@ class BijouxController extends Controller
             'url_img'=>'required|image|sometimes|mimes:png,jpg,jpeg|max:5000',
         ]);
 
-        $bijou->update ([
+        $bijoux->update ([
             'name'=>$request->name,
             'price'=>$request->price,
             'desc'=>$request->desc,
             'stock'=>$request->stock,
             'category'=>$request->category,
-            'url_img'=>$bijou->url_img,
+            'url_img'=>$bijoux->url_img,
             'updated_at'=>now()
         ]);
-        return redirect()->route('bijoux.all', $bijou->id)->with('status', 'Bijou modifié');
+
+        if($request->has('images')){
+            // 2-Stock all images selected in array
+            $imagesSelected = $request->file('images');
+            // 3- Loop storage each image
+            foreach ($imagesSelected as $image) {
+                // 4-Give a new name for each image
+                $image_name = md5(rand(1000, 10000)). '.' . strtolower($image->extension());
+                // 5-Set a passname
+                $path_upload = 'img/images';
+                $image->move(public_path($path_upload), $image_name);
+
+                Image::create([
+                    "slug"=>$path_upload .'/'.$image_name,
+                    "created_at"=>now(),
+                    "bijou_id"=> $bijoux->id,
+                ]);
+            }
+        }
+
+        return redirect()->route('bijoux.all', $bijoux->id)->with('status', 'Bijou modifié');
     }
 
     /**
@@ -124,10 +169,11 @@ class BijouxController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bijou $bijou)
+    public function destroy(Bijou $bijoux)
     {
-        $bijou->delete();
-        return redirect()->route('bijoux.all')->with('status', 'Bijou supprimé');
+        // dd($bijoux);
+        $bijoux->delete();
+        return back()->with('status', 'Bijou supprimé');
     }
 
     /**
@@ -137,7 +183,7 @@ class BijouxController extends Controller
      */
     public function allBijoux()
     {
-        $bijoux = Bijou::orderBy('updated_at', 'DESC')->paginate(10) ;
+        $bijoux = Bijou::all();
         return view('pages.all-bijoux', compact('bijoux'));
     }
 }

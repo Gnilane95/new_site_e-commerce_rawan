@@ -18,7 +18,9 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    @include('partials.navbar._navbar')
+    {{-- @if (\Route::current()->getName !='home')
+        @include('partials.navbar._navbar')
+    @endif --}}
     @include('partials._session')
     {{ $slot }}
     @vite('resources/js/app.js')

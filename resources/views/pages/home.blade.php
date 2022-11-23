@@ -1,17 +1,20 @@
 <x-layouts.main-layout title="Accueil">
+    @include('partials.navbar._navbar')
+
     {{-- hero home --}}
         <div class="hero ">
             <div class="flex-col flex justify-center items-center text-center absolute z-50 left-auto h-full">
                     <img src="img/logo-rawan-removebg-preview.png" alt="Logo Rawan" width="200px">
                     <p class="font-bold text-white text-xl italic">
-                        Votre boutique de <span class="text-secondary">prêt-à-porter</span> <br> et de <span class="text-primary">bijoux</span>
+                        Votre boutique de <span class="text-secondary-dark">prêt-à-porter</span> <br> et de <span class="text-primary">bijoux</span>
                     </p>
             </div>
             <div class="overlay"></div>
         </div>
-        {{-- main content --}}
+            {{-- main content --}}
         <div class=" ">
             {{-- card bijoux --}}
+            {{-- <a href="{{ route('users.show', $user->auth) }}">Mon profil</a> --}}
             <div class="mt-28 mb-44 mx-36">
                 <h1 class="text-center font-black text-2xl mb-5">Notre Sélection <span class="text-primary italic">bijoux</span></h1>
                 <div class="flex justify-around space-x-5">

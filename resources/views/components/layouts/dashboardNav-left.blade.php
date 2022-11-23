@@ -10,6 +10,11 @@
     </a>
     <hr class="my-10">
     <div class="">
-        <a href="{{ route('bijoux.all') }}" class="{{ $styleLink }}">Liste des bijoux</a>
+        <a href="{{ route('bijoux.all') }}" class="{{ $styleLink }}">
+            Tous les bijoux
+        </a>
+        <a href="{{ route('images.all') }}" class="{{ $styleLink }}">
+            Les images
+        </a>
     </div>
 </div>
