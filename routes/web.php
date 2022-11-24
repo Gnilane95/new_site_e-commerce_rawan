@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AviController;
+use App\Http\Controllers\BijouinoxController;
 use App\Http\Controllers\BijouxController;
 use App\Http\Controllers\EnfantController;
 use App\Http\Controllers\FemmeController;
@@ -40,5 +41,6 @@ Route::get('/dashboard', function () {
 Route::get('/all-bijoux',[BijouxController::class, 'allBijoux'])->name('bijoux.all');
 Route::get('/all-images',[ImageController::class, 'allImages'])->name('images.all');
 Route::post('/avis/{id}', [AviController::class, 'store'])->name('avi.store');
+Route::get('/bijoux-inox',[BijouinoxController::class, 'index'])->name('bijoux-inox.all');
 
 require __DIR__.'/auth.php';

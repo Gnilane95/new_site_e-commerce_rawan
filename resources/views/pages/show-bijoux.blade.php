@@ -16,8 +16,9 @@
         <img src="{{ asset('storage/'.$bijoux->url_img) }}" alt="{{ $bijoux->name }}" class="max-w-sm">
         {{-- Infos card --}}
         <div class="">
-            <h1 class="text-5xl ">{{ $bijoux->name }}</h1>
-            <div class="flex space-x-3 items-center">
+            <h1 class="text-5xl pb-3">{{ $bijoux->name }}</h1>
+            <span class="bg-gray-400 px-5 py-2 rounded-lg font-bold">{{ $bijoux->category }}</span>
+            <div class="flex space-x-3 items-center mt-3">
                 <div class="">
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
@@ -30,7 +31,8 @@
             <p class="text-primary text-xl font-semibold pt-5">€{{ $bijoux->price }}</p>
             <hr class="mt-5 mb-5 border-2">
             <h2 class="text-xl font-semibold pb-3">Description</h2>
-            <p>{{ $bijoux->desc }}</p>
+            <p class="pb-5">{{ $bijoux->desc }}</p>
+            <span class="text-xl font-bold">Stock :</span> <span>{{ $bijoux->stock }}</span>
             <div class="mt-5">
                 <select class="rounded-md" name="qty" id="qty">
                     @for ($i = 1; $i <= 10; $i++)
