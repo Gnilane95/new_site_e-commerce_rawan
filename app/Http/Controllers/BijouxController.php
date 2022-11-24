@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bijou;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class BijouxController extends Controller
@@ -16,8 +17,10 @@ class BijouxController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        $userId=$user->id;
         $bijoux = Bijou::orderBy('updated_at','desc')->paginate(12) ;
-        return view('pages.bijoux', compact('bijoux'));
+        return view('pages.bijoux', compact('bijoux'))->with("userId",$userId);
     }
 
     /**
@@ -92,7 +95,9 @@ class BijouxController extends Controller
     public function show(Bijou $bijoux)
     {
         // dd($bijoux);
-        return view('pages.show-bijoux', compact('bijoux'));
+        $user = Auth::user();
+        $userId=$user->id;
+        return view('pages.show-bijoux', compact('bijoux'))->with("userId",$userId);
     }
 
     /**

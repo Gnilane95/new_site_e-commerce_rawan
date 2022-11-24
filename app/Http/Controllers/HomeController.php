@@ -18,8 +18,8 @@ class HomeController extends Controller
     {
         $bijoux = Bijou::all();
         $user = Auth::user();
-        // dd($user);
         $userId=$user->id;
+        // dd($user);
         // dd($userId);
         return view('pages.home', compact('bijoux'))->with("userId",$userId);
     }

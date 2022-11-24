@@ -25,7 +25,9 @@
         @auth
         <div class="dropdown dropdown-end flexh items-center">
             <p class="text-gray-600 text-center">Bienvenue</p>
-            <label tabindex="0" class="cursor-pointer text-secondary-dark underline border-none">{{ Auth::user()->name }}</label>
+            <label tabindex="0" class="cursor-pointer text-secondary-dark underline border-none">
+                {{ Auth::user()->name }}
+            </label>
             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                 <li >
                     <a href="{{ route('users.show',$userId) }}">Mon profil</a>

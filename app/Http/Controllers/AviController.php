@@ -12,12 +12,16 @@ class AviController extends Controller
         
         $request->validate([
             'avis'=>'required|max:300|string',
+            'name'=>'required|string|max:90',
+            'email'=>'required|string',
         ]);
         //get data of form
         $data = [
             'avis' => $request->avis,
+            'name' => $request->name,
+            'email' => $request->email,
+            'bijou_id' => $id,
             'created_at' => now(),
-            'bijou_id' => $id
         ];
         //insert in table Comment
         Avi::create($data);

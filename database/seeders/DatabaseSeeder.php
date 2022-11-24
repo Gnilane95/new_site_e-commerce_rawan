@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         PostCategory::factory(10)->create();
         Bijou::factory(10)->create();
         Image::factory(10)->create();
-        Avi::factory(10)->create();
+        Avi::factory(5)->create();
         // \App\Models\Post::factory(5)->create();
         // Post::factory(30)->create();
 

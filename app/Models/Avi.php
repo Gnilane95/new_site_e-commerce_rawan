@@ -15,8 +15,4 @@ class Avi extends Model
     {
         return $this->belongsTo(Bijou::class);
     }
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

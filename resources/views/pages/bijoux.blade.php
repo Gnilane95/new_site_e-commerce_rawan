@@ -1,4 +1,5 @@
 <x-layouts.main-layout title="Bijoux">
+    @include('partials.navbar._navbar')
     <x-nav-bijou/>
         <div class=" py-36 px-28">
             <div class="grid grid-cols-4 gap-10  ">
