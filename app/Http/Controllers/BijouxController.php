@@ -94,6 +94,7 @@ class BijouxController extends Controller
      */
     public function show(Bijou $bijoux)
     {
+        // $bijoux = Bijou::orderBy('created_at','desc')->paginate(4) ;
         // dd($bijoux);
         $user = Auth::user();
         $userId=$user->id;

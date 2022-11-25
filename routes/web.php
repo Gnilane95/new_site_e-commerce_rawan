@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AviController;
+use App\Http\Controllers\BijouargentController;
 use App\Http\Controllers\BijouinoxController;
+use App\Http\Controllers\BijoupersoController;
 use App\Http\Controllers\BijouxController;
 use App\Http\Controllers\EnfantController;
 use App\Http\Controllers\FemmeController;
@@ -42,5 +44,7 @@ Route::get('/all-bijoux',[BijouxController::class, 'allBijoux'])->name('bijoux.a
 Route::get('/all-images',[ImageController::class, 'allImages'])->name('images.all');
 Route::post('/avis/{id}', [AviController::class, 'store'])->name('avi.store');
 Route::get('/bijoux-inox',[BijouinoxController::class, 'index'])->name('bijoux-inox.all');
+Route::get('/bijoux-argents',[BijouargentController::class, 'index'])->name('bijoux-argents.all');
+Route::get('/bijoux-perso',[BijoupersoController::class, 'index'])->name('bijoux-perso.all');
 
 require __DIR__.'/auth.php';

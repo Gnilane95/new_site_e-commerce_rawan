@@ -1,4 +1,4 @@
-<x-layouts.main-layout title="Aciers Inoxydables">
+<x-layouts.main-layout title="Bijoux personalisés">
     @include('partials.navbar._navbar')
     <x-nav-bijou/>
         <div class=" py-36 px-28">

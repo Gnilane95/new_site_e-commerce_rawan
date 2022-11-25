@@ -31,6 +31,7 @@
             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                 <li >
                     <a href="{{ route('users.show',$userId) }}">Mon profil</a>
+                    
                 </li>
                 <li ><x-btn-logout/></li>
             </ul>

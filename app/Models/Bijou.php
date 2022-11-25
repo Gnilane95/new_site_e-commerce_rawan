@@ -21,9 +21,4 @@ class Bijou extends Model
     {
         return $this->hasMany(Avi::class);
     }
-    
-    public function bijou_inox()
-    {
-        return $this->hasMany(BijouInox::class);
-    }
 }
