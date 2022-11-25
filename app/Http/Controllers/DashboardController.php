@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Bijou;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( )
+    public function index()
     {
-        $bijoux = Bijou::all();
-        if (Auth::check()) {
-            $user = Auth::user();
+        $user = Auth::user();
             $userId=$user->id;
-            return view('pages.home')->with("userId",$userId);
-        } else {
-            return view('pages.home', compact('bijoux'));
-        }  
+            return view('dashboard')->with("userId",$userId);
+        // if (Auth::check()) {
+        //     $user = Auth::user();
+        //     $userId=$user->id;
+        //     return view('dashboard')->with("userId",$userId);
+        // } else {
+        //     return view('dashboard');
+        // }
     }
 
     /**

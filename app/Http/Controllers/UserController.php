@@ -38,21 +38,21 @@ class UserController extends Controller
         $userId=$user->id;
         return view('pages.edit-user', compact('user'))->with("userId",$userId);
     }
-    public function update(Request $request,User $user)
-    {
-        $request->validate([
-            'email'=>'required|string|email',
-            'password'=>'required',
-        ]);
+    // public function update(Request $request,User $user)
+    // {
+    //     $request->validate([
+    //         'email'=>'required|string|email',
+    //         'password'=>'required',
+    //     ]);
 
-        $user->update ([
-            'email'=>$request->email,
-            'password'=>$request->password,
-            'updated_at'=>now()
-        ]);
+    //     $user->update ([
+    //         'email'=>$request->email,
+    //         'password'=>$request->password,
+    //         'updated_at'=>now()
+    //     ]);
 
-        return redirect()
-        ->route('users.show',$user->id)
-        ->with('status', 'Vos données ont bien été modifiées');
-    }
+    //     return redirect()
+    //     ->route('users.show',$user->id)
+    //     ->with('status', 'Vos données ont bien été modifiées');
+    // }
 }

@@ -17,10 +17,14 @@ class BijouxController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $userId=$user->id;
         $bijoux = Bijou::orderBy('updated_at','desc')->paginate(12) ;
-        return view('pages.bijoux', compact('bijoux'))->with("userId",$userId);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $userId=$user->id;
+            return view('pages.home')->with("userId",$userId);
+        } else {
+            return view('pages.bijoux', compact('bijoux'));
+        }
     }
 
     /**
@@ -96,9 +100,13 @@ class BijouxController extends Controller
     {
         // $bijoux = Bijou::orderBy('created_at','desc')->paginate(4) ;
         // dd($bijoux);
-        $user = Auth::user();
-        $userId=$user->id;
-        return view('pages.show-bijoux', compact('bijoux'))->with("userId",$userId);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $userId=$user->id;
+            return view('pages.home')->with("userId",$userId);
+        } else {
+            return view('pages.show-bijoux', compact('bijoux'));
+        }
     }
 
     /**
