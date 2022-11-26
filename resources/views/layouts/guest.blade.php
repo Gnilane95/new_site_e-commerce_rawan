@@ -19,16 +19,16 @@
     {{-- import tailwind --}}
     @vite('resources/css/app.css')
 </head>
-<body class="bg-secondary">
-    <div class="bg-white shadow-lg">
+<body class="bg-gray-100 p-10">
+    {{-- <div class="bg-white shadow-lg">
         @include('partials.navbar._navbar')
-    </div>
+    </div> --}}
     @include('partials._session')
     {{ $slot }}
     @vite('resources/js/app.js')
     @vite('resources/js/scroll.js')
-    <div class="bg-white">
+    {{-- <div class="bg-white">
         @include('partials.footer._footer')
-    </div>
+    </div> --}}
 </body>
 </html>

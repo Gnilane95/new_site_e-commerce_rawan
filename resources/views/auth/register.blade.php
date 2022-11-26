@@ -1,13 +1,11 @@
 <x-guest-layout title="Créer un compte">
-    <h1 class="uppercase text-center mt-10 text-2xl font-black">Créer un compte</h1>
+    {{-- logo --}}
+    <a href="/">
+        <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="Logo Rawan" class="w-28 mx-auto">
+    </a>
+    <h1 class="uppercase text-center pt-5 text-2xl font-black">Créer un compte</h1>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" class="form-control">
             @csrf
 
             <!-- Name -->
@@ -21,7 +19,7 @@
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-input-label for="email" :value="__('Email')" />
+                <x-input-label for="email" :value="__('E-mail')" />
 
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
 
@@ -30,7 +28,7 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
+                <x-input-label for="password" :value="__('Mot de pass')" />
 
                 <x-text-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -42,7 +40,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-input-label for="password_confirmation" :value="__('Confirmer le mot de pass')" />
 
                 <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
@@ -51,13 +49,12 @@
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-between mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Vous avez déjà un compte ?') }}
                 </a>
-
-                <x-primary-button class="ml-4">
-                    {{ __('Register') }}
+                <x-primary-button class="btn bg-primary border-none ml-4 py-1 px-3 rounded-lg text-white">
+                    {{ __('Enregistrer') }}
                 </x-primary-button>
             </div>
         </form>

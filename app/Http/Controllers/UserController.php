@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,7 +25,7 @@ class UserController extends Controller
         $user = User::all();
         
         return view('pages.all-users', compact('user'));
-        }
+    }
 
     public function show(User $user)
     {
@@ -38,21 +40,21 @@ class UserController extends Controller
         $userId=$user->id;
         return view('pages.edit-user', compact('user'))->with("userId",$userId);
     }
-    // public function update(Request $request,User $user)
-    // {
-    //     $request->validate([
-    //         'email'=>'required|string|email',
-    //         'password'=>'required',
-    //     ]);
+    public function update(Request $request,User $user)
+    {
+        $request->validate([
+            'email' => ['required', 'string','sometimes', 'email', 'max:255'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
 
-    //     $user->update ([
-    //         'email'=>$request->email,
-    //         'password'=>$request->password,
-    //         'updated_at'=>now()
-    //     ]);
+        $user->update([
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'email_verified_at' => 'datetime',
+        ]);
 
-    //     return redirect()
-    //     ->route('users.show',$user->id)
-    //     ->with('status', 'Vos données ont bien été modifiées');
-    // }
+        return redirect()
+        ->route('users.show',$user->id)
+        ->with('status', 'Vos données ont bien été modifiées');
+    }
 }

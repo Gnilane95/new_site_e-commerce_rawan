@@ -22,10 +22,10 @@ return new class extends Migration
             $table->foreignId('bijou_id')->onDelete('cascade')->nullable();
             $table->boolean('is_admin')->default(0);
             $table->rememberToken();
-            $table->string('phone');
-            $table->string('adress');
-            $table->string('zip');
-            $table->string('city');
+            $table->string('phone')->nullable();
+            $table->string('adress')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('city')->nullable();
             $table->timestamps();
         });
     }

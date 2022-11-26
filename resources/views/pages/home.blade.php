@@ -14,9 +14,8 @@
             {{-- main content --}}
         <div class=" ">
             {{-- card bijoux --}}
-            {{-- <a href="{{ route('users.show', $user->auth) }}">Mon profil</a> --}}
             <div class="mt-28 mb-44 mx-36">
-                <h1 class="text-center font-black text-2xl mb-5">Notre Sélection <span class="text-primary italic">bijoux</span></h1>
+                <h1 class="text-center font-black text-2xl mb-5">Nos bijoux <span class="text-primary italic">bijoux</span></h1>
                 <div class="flex justify-around space-x-5">
                     <div class="shadow-xl">
                         <img src="img/ruan-richard-rodrigues-p_OV-k846CQ-unsplash.jpg" alt="bijoux" class="w-full">
@@ -185,20 +184,5 @@
                 </div>
             </div>
         </div>
-        
-    {{-- <div class="mx-10">
-        <div class="grid grid-cols-4 gap-5 " id="containerGrid">
-            @forelse ($posts as $post)
-                <a href="posts/{{ $post->id }}">
-                    <x-cards.post-card :url_img="$post->url_img" :title="$post->title" :content="$post->content" :created_at="$post->created_at->format('d/m/Y')"/>
-                </a>
-            @empty
-                <p>Pas d'articles disponibles</p>
-            @endforelse
-        </div>
-        <div class="my-12 mx-auto flex justify-end">
-            {{ $posts->links('pagination::tailwind') }}
-        </div>
-    </div> --}}
 </x-layouts.main-layout>
 
