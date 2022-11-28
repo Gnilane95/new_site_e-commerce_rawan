@@ -2,7 +2,7 @@
     <div class="flex">
         <x-layouts.dashboardNav-left/>
         <div class="w-full bg-gray-100">
-            <x-dashboard-top currentPage="Edit"/>
+            <x-dashboard-top currentPage="Modifier un bijou"/>
             <div class="py-10 mx-10">
                 <h1 class="font-black text-4xl text-gray-700 pb-5">Modifier un bijou</h1>
                 <form action="{{ route('bijoux.update',$bijoux->id) }}" method="POST" enctype="multipart/form-data">

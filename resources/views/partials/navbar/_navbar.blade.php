@@ -1,15 +1,15 @@
 @php
     $styleLink="font-bold hover:text-orange-600 hover:underline underline-offset-4"
 @endphp
-<nav class="flex justify-between px-10 py-5 items-center font-bold">
+<nav class="flex justify-between sticky top-0 z-50 bg-white shadow-lg px-10 py-5 items-center font-bold">
     {{-- logo --}}
-        <a href="/">
-            <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="Logo Rawan" class="w-20">
-        </a>
+    <a href="/">
+        <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="Logo Rawan" class="w-20">
+    </a>
     {{-- nav items --}}
     <div class="nav_menu space-x-5 flex text-gray-600">
         {{-- ${ Route::getCurrentRoute()->getName() === "bijoux" ? "bg-gray-200": "" } --}}
-        <a href="{{ route('bijoux.index') }}" active={true} class="hover:text-primary"> Bijoux</a>
+        <a href="{{ route('bijoux.index') }}" class="hover:text-primary">Bijoux</a>
         <a href="{{ route('femmes') }}" class="hover:text-primary">Collections femmes</a>
         <a href="{{ route('hommes') }}" class="hover:text-primary">Abayas hommes</a>
         <a href="{{ route('enfants') }}" class="hover:text-primary">Enfants</a>
@@ -17,7 +17,9 @@
     </div>
     {{-- other items --}}
     <div class="flex items-center">
-        <a href="" class="btn btn-ghost btn-circle"><i class="fa-solid fa-magnifying-glass text-gray-600"></i></a>
+        <a href="" class="btn btn-ghost btn-circle">
+            <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
+        </a>
         <div class="dropdown dropdown-end">
             <label tabindex="0" class="btn btn-ghost btn-circle">
               <div class="indicator">
@@ -36,7 +38,9 @@
             </div>
         </div>
         @guest
-            <a href="{{ route('login') }}"><i class="fa-regular fa-user text-gray-600"></i></a>
+            <a href="{{ route('login') }}" class="btn btn-ghost btn-circle">
+                <i class="fa-regular fa-user text-gray-600"></i>
+            </a>
         @endguest
         @auth
         <div class="dropdown dropdown-end flexh items-center">

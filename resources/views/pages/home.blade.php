@@ -2,7 +2,9 @@
     @include('partials.navbar._navbar')
 
         {{-- hero home --}}
-        <x-home.hero/>
+        <div class="">
+            <x-home.hero/>
+        </div>
             {{-- main content --}}
         <div class=" ">
             {{-- section bijoux --}}

@@ -73,9 +73,18 @@ class ImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Image $image)
     {
-        //
+        $request->validate([
+            'slug'=>'required|image|mimes:png,jpg,jpeg|max:5000',
+        ]);
+
+        $image->update ([
+            'slug' =>$image->slug,
+            'created_at'=>now()
+        ]);
+
+        return redirect()->route('images.all', $image->id)->with('status', 'Image modifié');
     }
 
     /**

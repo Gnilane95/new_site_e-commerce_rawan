@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FemmeController extends Controller
 {
@@ -13,6 +14,11 @@ class FemmeController extends Controller
      */
     public function index()
     {
+        if (Auth::check()) {
+            $user = Auth::user();
+            $userId=$user->id;
+            return view('pages.collectionsFemme')->with("userId",$userId);
+        }
         return view('pages.collectionsFemme');
     }
 

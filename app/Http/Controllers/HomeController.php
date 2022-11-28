@@ -14,16 +14,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( )
+    public function index()
     {
-        $bijoux = Bijou::all();
+        // $bijoux = Bijou::where([
+        //         ['category','Aciers Inoxydables'],
+        //         ['category','Argents'], 
+        //         ['category','Bijoux personalisés']
+        //     ])->get();
+        // $bijoux = Bijou::where('category','Aciers Inoxydables')->get();
         if (Auth::check()) {
             $user = Auth::user();
             $userId=$user->id;
             return view('pages.home')->with("userId",$userId);
-        } else {
-            return view('pages.home', compact('bijoux'));
-        }  
+        }
+        return view('pages.home');
     }
 
     /**
