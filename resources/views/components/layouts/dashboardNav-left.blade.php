@@ -13,8 +13,8 @@
         <a href="{{ route('bijoux.all') }}" class="{{ $styleLink }}">
             Tous les bijoux
         </a>
-        {{-- <a href="{{ route('images.all') }}" class="{{ $styleLink }}">
-            Les images
-        </a> --}}
+        <a href="{{ route('vetfemmes.all') }}" class="{{ $styleLink }}">
+            Mes vêtements femmes
+        </a>
     </div>
 </div>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug');
             $table->foreignId('bijou_id')->onDelete('cascade')->nullable();
+            $table->foreignId('femme_id')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

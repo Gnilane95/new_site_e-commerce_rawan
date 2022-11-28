@@ -33,7 +33,8 @@ Route::resource('articles', ArticleController::class);
 Route::resource('bijoux', BijouxController::class);
 Route::resource('images', ImageController::class);
 Route::resource('users', UserController::class);
-Route::get('/collectionsFemme',[FemmeController::class, 'index'])->name('femmes');
+Route::resource('femmes', FemmeController::class);
+// Route::get('/collectionsFemme',[FemmeController::class, 'index'])->name('femmes');
 Route::get('/abayasHomme',[HommeController::class, 'index'])->name('hommes');
 Route::get('/enfants',[EnfantController::class, 'index'])->name('enfants');
 Route::get('/blog',[PostController::class, 'index'])->name('blog');
@@ -49,7 +50,8 @@ Route::middleware(['admin'])->prefix('dashboard')->group(function(){
     // })->name('dashboard');
     Route::get('/',[DashboardController::class, 'index'])->name('dashboard');
     Route::get('/all-bijoux',[BijouxController::class, 'allBijoux'])->name('bijoux.all');
-    Route::get('/all-images',[ImageController::class, 'allImages'])->name('images.all');
+    Route::get('/all-vetfemmes',[FemmeController::class, 'allVetFemmes'])->name('vetfemmes.all');
+    // Route::get('/all-images',[ImageController::class, 'allImages'])->name('images.all');
 });
 
 Route::post('/avis/{id}', [AviController::class, 'store'])->name('avi.store');

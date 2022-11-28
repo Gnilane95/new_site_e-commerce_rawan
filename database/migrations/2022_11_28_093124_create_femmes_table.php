@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('avis', function (Blueprint $table) {
+        Schema::create('femmes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('avis');
-            $table->string('note')->nullable();
-            $table->foreignId('bijou_id')->onDelete('cascade')->nullable();
-            $table->foreignId('femme_id')->onDelete('cascade')->nullable();
+            $table->float('price');
+            $table->text('desc');
+            $table->string('url_img');
+            $table->boolean('stock')->default(0);
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avis');
+        Schema::dropIfExists('femmes');
     }
 };

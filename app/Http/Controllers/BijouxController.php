@@ -106,9 +106,8 @@ class BijouxController extends Controller
             $user = Auth::user();
             $userId=$user->id;
             return view('pages.show-bijoux',compact('bijoux'))->with("userId",$userId);
-        } else {
-            return view('pages.show-bijoux', compact('bijoux'));
         }
+        return view('pages.show-bijoux', compact('bijoux'));
     }
 
     /**

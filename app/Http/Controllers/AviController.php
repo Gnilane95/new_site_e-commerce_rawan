@@ -23,7 +23,7 @@ class AviController extends Controller
             'bijou_id' => $id,
             'created_at' => now(),
         ];
-        //insert in table Comment
+        //insert in table Avi
         Avi::create($data);
         // dd($data);
 

@@ -21,13 +21,13 @@ class HomeController extends Controller
         //         ['category','Argents'], 
         //         ['category','Bijoux personalisés']
         //     ])->get();
-        // $bijoux = Bijou::where('category','Aciers Inoxydables')->get();
+        $bijoux = Bijou::where('category','Aciers Inoxydables')->get();
         if (Auth::check()) {
             $user = Auth::user();
             $userId=$user->id;
-            return view('pages.home')->with("userId",$userId);
+            return view('pages.home', compact('bijoux'))->with("userId",$userId);
         }
-        return view('pages.home');
+        return view('pages.home', compact('bijoux'));
     }
 
     /**

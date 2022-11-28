@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Avi;
 use App\Models\Bijou;
+use App\Models\Femme;
 use App\Models\Image;
 use App\Models\PostBlog;
 use App\Models\PostCategory;
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
         Bijou::factory(10)->create();
         Image::factory(10)->create();
         Avi::factory(5)->create();
+        Femme::factory(5)->create();
         // \App\Models\Post::factory(5)->create();
         // Post::factory(30)->create();
 

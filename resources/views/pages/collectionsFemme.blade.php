@@ -1,9 +1,18 @@
 <x-layouts.main-layout title="Vêtements femme">
     @include('partials.navbar._navbar')
-    <div class="my-48">
-        
-        <h1 class="text-primary font-black text-2xl text-center mb-28">
-            Collections femmes
-        </h1>
+    <x-nav-femmes/>
+    <div class="mb-48 mt-28 mx-28">
+            <div class="grid grid-cols-4 gap-10  ">
+                @forelse ($femmes as $femme)
+                    <a href="{{ route('femmes.show', $femme->id) }}">
+                        <x-cards.card :url_img="$femme->url_img" :name="$femme->name" :price="$femme->price" />
+                    </a>
+                @empty
+                    <p>Stock épuisé</p>
+                @endforelse
+            </div>
+            <div class="flex justify-end">
+                {{ $femmes->links('pagination::tailwind') }}
+            </div>
     </div>
 </x-layouts.main-layout>

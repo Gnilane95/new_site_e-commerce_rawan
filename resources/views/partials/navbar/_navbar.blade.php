@@ -10,7 +10,7 @@
     <div class="nav_menu space-x-5 flex text-gray-600">
         {{-- ${ Route::getCurrentRoute()->getName() === "bijoux" ? "bg-gray-200": "" } --}}
         <a href="{{ route('bijoux.index') }}" class="hover:text-primary">Bijoux</a>
-        <a href="{{ route('femmes') }}" class="hover:text-primary">Collections femmes</a>
+        <a href="{{ route('femmes.index') }}" class="hover:text-primary">Collections femmes</a>
         <a href="{{ route('hommes') }}" class="hover:text-primary">Abayas hommes</a>
         <a href="{{ route('enfants') }}" class="hover:text-primary">Enfants</a>
         <a href="{{ route('blog') }}" class="hover:text-primary">blog</a>
