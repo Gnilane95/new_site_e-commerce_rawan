@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbayaFemmeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AviController;
@@ -16,7 +17,11 @@ use App\Http\Controllers\BijouinoxController;
 use App\Http\Controllers\BijoupersoController;
 use App\Http\Controllers\BijouargentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EnsCombController;
+use App\Http\Controllers\PantalonJeanController;
+use App\Http\Controllers\PullHautController;
 use App\Http\Controllers\RobeJupeController;
+use App\Http\Controllers\VesteManteauController;
 use App\Models\RobeJupe;
 
 /*
@@ -49,14 +54,20 @@ Route::get('/blog',[PostController::class, 'index'])->name('blog');
 Route::middleware(['admin'])->prefix('dashboard')->group(function(){
     Route::get('/',[DashboardController::class, 'index'])->name('dashboard');
     Route::get('/all-bijoux',[BijouxController::class, 'allBijoux'])->name('bijoux.all');
-    Route::get('/all-vetfemmes',[FemmeController::class, 'allVetFemmes'])->name('vetfemmes.all');
+    Route::get('/all-vetements-femmes',[FemmeController::class, 'allVetFemmes'])->name('vetfemmes.all');
+    Route::get('/all-robes-jupes',[RobeJupeController::class, 'allRobesJupes'])->name('robesJupes.all');
     // Route::get('/all-images',[ImageController::class, 'allImages'])->name('images.all');
 });
 
 Route::post('/avis/{id}', [AviController::class, 'store'])->name('avi.store');
 Route::get('/bijoux-inox',[BijouinoxController::class, 'index'])->name('bijoux-inox.all');
 Route::get('/bijoux-argents',[BijouargentController::class, 'index'])->name('bijoux-argents.all');
-Route::get('/bijoux-perso',[BijoupersoController::class, 'index'])->name('bijoux-perso.all');
-Route::get('/robes_jupes',[RobeJupeController::class, 'index'])->name('robes_et_jupes');
+Route::get('/bijoux-personalisés',[BijoupersoController::class, 'index'])->name('bijoux-perso.all');
+Route::get('/robes-jupes',[RobeJupeController::class, 'index'])->name('robes_et_jupes');
+Route::get('/pulls-hauts',[PullHautController::class, 'index'])->name('pulls_et_hauts');
+Route::get('/ensembles-combinaisons',[EnsCombController::class, 'index'])->name('ensembles_et_combinaisons');
+Route::get('/pantalons-jeans',[PantalonJeanController::class, 'index'])->name('pantalons_jeans');
+Route::get('/vestes-manteaux',[VesteManteauController::class, 'index'])->name('vestes_manteaux');
+Route::get('/abayas-femmes',[AbayaFemmeController::class, 'index'])->name('abayasFemme');
 
 require __DIR__.'/auth.php';
