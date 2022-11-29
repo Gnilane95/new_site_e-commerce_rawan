@@ -115,17 +115,17 @@
 
     {{-- Voir aussi --}}
     <div class=" py-36 px-28">
-        {{-- <div class="grid grid-cols-4 gap-10  ">
-            @forelse ($bijoux as $bijou)
+        <div class="grid grid-cols-4 gap-10  ">
+            @forelse ($allBijoux as $bijou)
                 <a href="{{ route('bijoux.show', $bijou->id) }}">
-                    <x-cards.bijou-card :url_img="$bijou->url_img" :name="$bijou->name" :price="$bijou->price"/>
+                    <x-cards.card :url_img="$bijou->url_img" :name="$bijou->name" :price="$bijou->price"/>
                 </a>
             @empty
                 <p>Pas de bijoux disponibles</p>
             @endforelse
-        </div> --}}
+        </div>
         {{-- <div class="flex justify-end">
-            {{ $bijoux->links('pagination::tailwind') }}
+            {{ $allBijoux->links('pagination::tailwind') }}
         </div> --}}
     </div>
 </x-layouts.main-layout>

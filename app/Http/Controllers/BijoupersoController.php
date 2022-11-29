@@ -10,9 +10,12 @@ class BijoupersoController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        $userId=$user->id;
         $bijoux = Bijou::where('category','Bijoux personalisés')->get();
-        return view('pages.bijoux-perso', compact('bijoux'))->with("userId",$userId);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $userId=$user->id;
+            return view('pages.bijoux-perso', compact('bijoux'))->with("userId",$userId);
+        }
+        return view('pages.bijoux-perso', compact('bijoux'));
     }
 }

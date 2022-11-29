@@ -5,7 +5,7 @@
             <div class="grid grid-cols-4 gap-10  ">
                 @forelse ($bijoux as $bijou)
                     <a href="{{ route('bijoux.show', $bijou->id) }}">
-                        <x-cards.bijou-card :url_img="$bijou->url_img" :name="$bijou->name" :price="$bijou->price" />
+                        <x-cards.card :url_img="$bijou->url_img" :name="$bijou->name" :price="$bijou->price" />
                     </a>
                 @empty
                     <p>Stock épuisé</p>

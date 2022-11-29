@@ -10,9 +10,12 @@ class BijouargentController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        $userId=$user->id;
         $bijoux = Bijou::where('category','Argents')->get();
-        return view('pages.bijoux-inox', compact('bijoux'))->with("userId",$userId);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $userId=$user->id;
+            return view('pages.bijoux-argents', compact('bijoux'))->with("userId",$userId);
+        }
+        return view('pages.bijoux-argents', compact('bijoux'));
     }
 }

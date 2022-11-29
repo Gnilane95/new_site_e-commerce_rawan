@@ -16,11 +16,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $bijoux = Bijou::where([
-        //         ['category','Aciers Inoxydables'],
-        //         ['category','Argents'], 
-        //         ['category','Bijoux personalisés']
-        //     ])->get();
+        $bijoux = Bijou::where([
+                ['category','Aciers Inoxydables'],
+                ['category','Argents'], 
+                ['category','Bijoux personalisés']
+            ])->get();
         $bijoux = Bijou::where('category','Aciers Inoxydables')->get();
         if (Auth::check()) {
             $user = Auth::user();

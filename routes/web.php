@@ -16,6 +16,8 @@ use App\Http\Controllers\BijouinoxController;
 use App\Http\Controllers\BijoupersoController;
 use App\Http\Controllers\BijouargentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RobeJupeController;
+use App\Models\RobeJupe;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +47,6 @@ Route::get('/blog',[PostController::class, 'index'])->name('blog');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['admin'])->prefix('dashboard')->group(function(){
-    // Route::get('/', function () {
-    //     return view('dashboard');
-    // })->name('dashboard');
     Route::get('/',[DashboardController::class, 'index'])->name('dashboard');
     Route::get('/all-bijoux',[BijouxController::class, 'allBijoux'])->name('bijoux.all');
     Route::get('/all-vetfemmes',[FemmeController::class, 'allVetFemmes'])->name('vetfemmes.all');
@@ -58,5 +57,6 @@ Route::post('/avis/{id}', [AviController::class, 'store'])->name('avi.store');
 Route::get('/bijoux-inox',[BijouinoxController::class, 'index'])->name('bijoux-inox.all');
 Route::get('/bijoux-argents',[BijouargentController::class, 'index'])->name('bijoux-argents.all');
 Route::get('/bijoux-perso',[BijoupersoController::class, 'index'])->name('bijoux-perso.all');
+Route::get('/robes_jupes',[RobeJupeController::class, 'index'])->name('robes_et_jupes');
 
 require __DIR__.'/auth.php';

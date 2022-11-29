@@ -21,6 +21,7 @@ class AviController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'bijou_id' => $id,
+            'femme_id' => $id,
             'created_at' => now(),
         ];
         //insert in table Avi

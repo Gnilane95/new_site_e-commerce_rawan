@@ -1,7 +1,7 @@
 @php
     $styleLink="font-bold hover:text-orange-600 hover:underline underline-offset-4"
 @endphp
-<nav class="flex justify-between sticky top-0 z-50 bg-white shadow-lg px-10 py-5 items-center font-bold">
+<nav class="flex justify-between stickyj top-0j z-50j bg-white shadow-lg px-10 py-5 items-center font-bold">
     {{-- logo --}}
     <a href="/">
         <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="Logo Rawan" class="w-20">
@@ -53,21 +53,14 @@
                     <a href="{{ route('users.show',$userId) }}">Mon profil</a>
                     
                 </li>
+                @if (Auth::user()->is_admin === 1)
+                    <li >
+                        <a href="{{ route('dashboard') }}">Tableau de bord</a>
+                    </li>
+                @endif
                 <li ><x-btn-logout/></li>
             </ul>
         </div>
-        
         @endauth
-        {{-- @guest
-            <a href="{{ route('login') }}" class="{{ $styleLink }}">Se connecter</a>
-            <a href="{{ route('register') }}" class="{{ $styleLink }}">S'inscrire</a>
-            @endguest
-        @auth
-            <a href="{{ route('dashboard') }}" class="{{ $styleLink }}">Dashbord</a>
-            <div class="flex justify-center gap-7 items-center">
-                <p>{{ Auth::user()->name }}</p>
-                <x-btn-logout/>
-            </div>
-        @endauth --}}
     </div>
 </nav>

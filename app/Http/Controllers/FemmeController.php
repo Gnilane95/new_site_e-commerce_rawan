@@ -91,7 +91,7 @@ class FemmeController extends Controller
                 Image::create([
                     "slug"=>$path_upload .'/'.$image_name,
                     "created_at"=>now(),
-                    "bijou_id"=> $new_vetfemme->id,
+                    "femme_id"=> $new_vetfemme->id,
                 ]);
             }
         }
@@ -174,7 +174,7 @@ class FemmeController extends Controller
                 Image::create([
                     "slug"=>$path_upload .'/'.$image_name,
                     "created_at"=>now(),
-                    "bijou_id"=> $femme->id,
+                    "femme_id"=> $femme->id,
                 ]);
             }
         }
