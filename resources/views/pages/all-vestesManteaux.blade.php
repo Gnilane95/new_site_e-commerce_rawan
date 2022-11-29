@@ -2,7 +2,7 @@
     <div class="flex">
         <x-layouts.dashboardNav-left/>
         <div class="w-full bg-gray-100">
-            <x-dashboard-top currentPage="Vestes/Manteaux"/>
+            <x-dashboard-top currentPage="Vestes-Manteaux"/>
             <div class="py-10 mx-10">
                 <div class="">
                     <h1 class=" font-black text-4xl text-gray-700 ">Vestes et Manteaux</h1>

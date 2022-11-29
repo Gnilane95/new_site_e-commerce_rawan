@@ -18,4 +18,10 @@ class BijouargentController extends Controller
         }
         return view('pages.bijoux-argents', compact('bijoux'));
     }
+
+    public function allArgents()
+    {
+        $bijoux = Bijou::where('category','Argents')->get();
+        return view('pages.all-argents', compact('bijoux'));
+    }
 }

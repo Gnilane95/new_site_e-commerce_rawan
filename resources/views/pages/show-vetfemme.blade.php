@@ -1,6 +1,3 @@
-{{-- @php
-    $current_user = Auth::user()->is_admin
-@endphp --}}
 <x-layouts.main-layout title="Vêtement Femme">
     @include('partials.navbar._navbar')
     <x-nav-femmes/>

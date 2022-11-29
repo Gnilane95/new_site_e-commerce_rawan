@@ -1,5 +1,5 @@
-<div class="bg-white border-b-4 border-primary-dark p-7 flex justify-between ">
-    <p class="font-bold text-secondary-dark">Dashboard/Bijoux/
+<div class="bg-white border-b-4 border-primary-dark p-7 flex justify-between items-center">
+    <p class="font-bold text-secondary-dark">Dashboard/
         <span class="text-gray-500">{{ $currentPage }}</span>
     </p>
     <div class="dropdown dropdown-end">

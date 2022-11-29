@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Homme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,12 +15,13 @@ class HommeController extends Controller
      */
     public function index()
     {
+        $hommes = Homme::orderBy('updated_at','DESC')->paginate(8);
         if (Auth::check()) {
             $user = Auth::user();
             $userId=$user->id;
-            return view('pages.abayasHomme')->with("userId",$userId);
+            return view('pages.abayasHomme', compact('hommes'))->with("userId",$userId);
         }
-        return view('pages.abayasHomme');
+        return view('pages.abayasHomme', compact('hommes'));
     }
 
     /**

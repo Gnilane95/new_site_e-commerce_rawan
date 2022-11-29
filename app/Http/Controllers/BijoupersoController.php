@@ -18,4 +18,10 @@ class BijoupersoController extends Controller
         }
         return view('pages.bijoux-perso', compact('bijoux'));
     }
+
+    public function allBijouxPerso()
+    {
+        $bijoux = Bijou::where('category','Bijoux personalisés')->get();
+        return view('pages.all-bijouxPerso', compact('bijoux'));
+    }
 }

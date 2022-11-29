@@ -41,7 +41,7 @@ Route::resource('bijoux', BijouxController::class);
 Route::resource('images', ImageController::class);
 Route::resource('users', UserController::class);
 Route::resource('femmes', FemmeController::class);
-Route::get('/abayasHomme',[HommeController::class, 'index'])->name('hommes');
+Route::resource('hommes', HommeController::class);
 Route::get('/enfants',[EnfantController::class, 'index'])->name('enfants');
 Route::get('/blog',[PostController::class, 'index'])->name('blog');
 
@@ -56,6 +56,8 @@ Route::middleware(['admin'])->prefix('dashboard')->group(function(){
     Route::get('/all-vestes-manteaux',[VesteManteauController::class, 'allVestesManteaux'])->name('vestesManteaux.all');
     Route::get('/all-abayas-femme',[AbayaFemmeController::class, 'allAbayasfemme'])->name('abayasFemme.all');
     Route::get('/all-aciers-inoxydables',[BijouinoxController::class, 'allAciersInox'])->name('aciersInox.all');
+    Route::get('/all-argents',[BijouargentController::class, 'allArgents'])->name('argents.all');
+    Route::get('/all-bijoux-personalisés',[BijoupersoController::class, 'allBijouxPerso'])->name('bijouxPerso.all');
 });
 
 Route::post('/avis/{id}', [AviController::class, 'store'])->name('avi.store');

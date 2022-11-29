@@ -24,6 +24,6 @@ class BijouinoxController extends Controller
     public function allAciersInox()
     {
         $bijoux = Bijou::where('category','Aciers Inoxydables')->get();
-        return view('pages.all-', compact('bijoux'));
+        return view('pages.all-bijouxInox', compact('bijoux'));
     }
 }

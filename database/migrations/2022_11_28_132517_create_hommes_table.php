@@ -20,7 +20,6 @@ return new class extends Migration
             $table->text('desc');
             $table->string('url_img');
             $table->boolean('stock')->default(0);
-            $table->string('category')->nullable();
             $table->timestamps();
         });
     }
