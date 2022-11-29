@@ -18,4 +18,10 @@ class PullHautController extends Controller
         }
         return view('pages.pulls-hauts', compact('femmes'));
     }
+
+    public function allPullsHauts()
+    {
+        $femmes = Femme::where('category', 'Pulls/hauts')->get();
+        return view('pages.all-pullsHauts', compact('femmes'));
+    }
 }

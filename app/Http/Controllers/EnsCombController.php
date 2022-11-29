@@ -18,4 +18,10 @@ class EnsCombController extends Controller
         }
         return view('pages.ens-comb', compact('femmes'));
     }
+
+    public function allEnsComb()
+    {
+        $femmes = Femme::where('category', 'Ensembles/Combinaisons')->get();
+        return view('pages.all-ensComb', compact('femmes'));
+    }
 }

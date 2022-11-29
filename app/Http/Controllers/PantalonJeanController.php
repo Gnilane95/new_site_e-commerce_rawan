@@ -18,4 +18,10 @@ class PantalonJeanController extends Controller
         }
         return view('pages.pant-jeans', compact('femmes'));
     }
+
+    public function allPantJeans()
+    {
+        $femmes = Femme::where('category', 'Pantalons/Jeans')->get();
+        return view('pages.all-pantJeans', compact('femmes'));
+    }
 }

@@ -20,4 +20,10 @@ class BijouinoxController extends Controller
         
         return view('pages.bijoux-inox', compact('bijoux'));
     }
+
+    public function allAciersInox()
+    {
+        $bijoux = Bijou::where('category','Aciers Inoxydables')->get();
+        return view('pages.all-', compact('bijoux'));
+    }
 }

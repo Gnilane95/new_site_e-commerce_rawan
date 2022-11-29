@@ -18,4 +18,10 @@ class VesteManteauController extends Controller
         }
         return view('pages.vestes-manteaux', compact('femmes'));
     }
+
+    public function allVestesManteaux()
+    {
+        $femmes = Femme::where('category', 'Vestes/Manteaux')->get();
+        return view('pages.all-vestesManteaux', compact('femmes'));
+    }
 }

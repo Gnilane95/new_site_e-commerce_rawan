@@ -18,4 +18,10 @@ class AbayaFemmeController extends Controller
         }
         return view('pages.abayas-femme', compact('femmes'));
     }
+
+    public function allAbayasfemme()
+    {
+        $femmes = Femme::where('category', 'Abayas')->get();
+        return view('pages.all-abayasFemme', compact('femmes'));
+    }
 }

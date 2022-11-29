@@ -41,22 +41,21 @@ Route::resource('bijoux', BijouxController::class);
 Route::resource('images', ImageController::class);
 Route::resource('users', UserController::class);
 Route::resource('femmes', FemmeController::class);
-// Route::get('/collectionsFemme',[FemmeController::class, 'index'])->name('femmes');
 Route::get('/abayasHomme',[HommeController::class, 'index'])->name('hommes');
 Route::get('/enfants',[EnfantController::class, 'index'])->name('enfants');
 Route::get('/blog',[PostController::class, 'index'])->name('blog');
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['admin'])->prefix('dashboard')->group(function(){
     Route::get('/',[DashboardController::class, 'index'])->name('dashboard');
     Route::get('/all-bijoux',[BijouxController::class, 'allBijoux'])->name('bijoux.all');
     Route::get('/all-vetements-femmes',[FemmeController::class, 'allVetFemmes'])->name('vetfemmes.all');
     Route::get('/all-robes-jupes',[RobeJupeController::class, 'allRobesJupes'])->name('robesJupes.all');
-    // Route::get('/all-images',[ImageController::class, 'allImages'])->name('images.all');
+    Route::get('/all-pulls-hauts',[PullHautController::class, 'allPullsHauts'])->name('pullsHauts.all');
+    Route::get('/all-ensemble-combinaison',[EnsCombController::class, 'allEnsComb'])->name('ensComb.all');
+    Route::get('/all-pantalons-jeans',[PantalonJeanController::class, 'allPantJeans'])->name('pantJeans.all');
+    Route::get('/all-vestes-manteaux',[VesteManteauController::class, 'allVestesManteaux'])->name('vestesManteaux.all');
+    Route::get('/all-abayas-femme',[AbayaFemmeController::class, 'allAbayasfemme'])->name('abayasFemme.all');
+    Route::get('/all-aciers-inoxydables',[BijouinoxController::class, 'allAciersInox'])->name('aciersInox.all');
 });
 
 Route::post('/avis/{id}', [AviController::class, 'store'])->name('avi.store');

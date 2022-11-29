@@ -18,4 +18,10 @@ class RobeJupeController extends Controller
         }
         return view('pages.robes-jupes', compact('femmes'));
     }
+
+    public function allRobesJupes()
+    {
+        $femmes = Femme::where('category', 'Robes/Jupes')->get();
+        return view('pages.all-robesJupes', compact('femmes'));
+    }
 }

@@ -27,7 +27,7 @@ class FemmeController extends Controller
     }
 
     /**
-     * Return all bijoux view
+     * Return all vetements femme view
      * 
      * @return void
      */
