@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('note')->nullable();
             $table->foreignId('bijou_id')->onDelete('cascade')->nullable();
             $table->foreignId('femme_id')->onDelete('cascade')->nullable();
+            $table->foreignId('homme_id')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

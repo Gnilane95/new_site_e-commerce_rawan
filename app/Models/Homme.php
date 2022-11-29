@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Homme extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
+    public function avis()
+    {
+        return $this->hasMany(Avi::class);
+    }
 }

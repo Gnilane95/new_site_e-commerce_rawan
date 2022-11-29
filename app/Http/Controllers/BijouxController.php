@@ -45,7 +45,6 @@ class BijouxController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->name);
         $request->validate([
             'name'=>'required|string|max:200',
             'price'=>'required',

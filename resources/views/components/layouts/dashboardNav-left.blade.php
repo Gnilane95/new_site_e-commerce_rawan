@@ -14,7 +14,10 @@
             Tous les bijoux
         </a>
         <a href="{{ route('vetfemmes.all') }}" class="{{ $styleLink }}">
-            Mes vêtements femmes
+            Tous les vêtements femme
+        </a>
+        <a href="{{ route('abayasHomme.all') }}" class="{{ $styleLink }}">
+            Tous les abayas homme
         </a>
     </div>
 </div>

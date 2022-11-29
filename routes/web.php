@@ -58,6 +58,7 @@ Route::middleware(['admin'])->prefix('dashboard')->group(function(){
     Route::get('/all-aciers-inoxydables',[BijouinoxController::class, 'allAciersInox'])->name('aciersInox.all');
     Route::get('/all-argents',[BijouargentController::class, 'allArgents'])->name('argents.all');
     Route::get('/all-bijoux-personalisés',[BijoupersoController::class, 'allBijouxPerso'])->name('bijouxPerso.all');
+    Route::get('/all-abayas-homme',[HommeController::class, 'allAbayasHomme'])->name('abayasHomme.all');
 });
 
 Route::post('/avis/{id}', [AviController::class, 'store'])->name('avi.store');

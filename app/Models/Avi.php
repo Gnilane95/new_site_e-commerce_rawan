@@ -16,8 +16,14 @@ class Avi extends Model
     {
         return $this->belongsTo(Bijou::class);
     }
+
     public function femme()
     {
         return $this->belongsTo(Femme::class);
+    }
+
+    public function homme()
+    {
+        return $this->belongsTo(Homme::class);
     }
 }

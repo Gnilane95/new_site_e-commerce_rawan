@@ -21,4 +21,9 @@ class Image extends Model
     {
         return $this->belongsTo(Femme::class);
     }
+    
+    public function homme()
+    {
+        return $this->belongsTo(Homme::class);
+    }
 }
