@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PostBlog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -13,7 +15,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('pages.blog');
+        $posts = PostBlog::orderBy('updated_at', 'DESC')->paginate(3);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $userId=$user->id;
+            return view('pages.blog', compact('posts'))->with("userId",$userId);
+        }
+        return view('pages.blog', compact('posts'));
     }
 
     /**

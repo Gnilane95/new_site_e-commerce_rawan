@@ -43,7 +43,7 @@ Route::resource('users', UserController::class);
 Route::resource('femmes', FemmeController::class);
 Route::resource('hommes', HommeController::class);
 Route::resource('enfants', EnfantController::class);
-Route::get('/blog',[PostController::class, 'index'])->name('blog');
+Route::resource('posts', PostController::class);
 
 Route::middleware(['admin'])->prefix('dashboard')->group(function(){
     Route::get('/',[DashboardController::class, 'index'])->name('dashboard');

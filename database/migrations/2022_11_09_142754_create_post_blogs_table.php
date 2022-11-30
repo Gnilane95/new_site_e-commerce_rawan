@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->text('content');
+            $table->text('category')->nullable();
             $table->string('author');
             $table->string('url_img');
             $table->timestamps();
