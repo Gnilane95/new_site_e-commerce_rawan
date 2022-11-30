@@ -42,7 +42,7 @@ Route::resource('images', ImageController::class);
 Route::resource('users', UserController::class);
 Route::resource('femmes', FemmeController::class);
 Route::resource('hommes', HommeController::class);
-Route::get('/enfants',[EnfantController::class, 'index'])->name('enfants');
+Route::resource('enfants', EnfantController::class);
 Route::get('/blog',[PostController::class, 'index'])->name('blog');
 
 Route::middleware(['admin'])->prefix('dashboard')->group(function(){

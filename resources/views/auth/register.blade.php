@@ -1,10 +1,10 @@
 <x-guest-layout title="Créer un compte">
-    {{-- logo --}}
-    <a href="/">
-        <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="Logo Rawan" class="w-28 mx-auto">
-    </a>
-    <h1 class="uppercase text-center pt-5 text-2xl font-black">Créer un compte</h1>
     <x-auth-card>
+        <a href="/">
+            <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="Logo Rawan" 
+            class="w-28 mx-auto">
+        </a>
+        <h1 class="uppercase text-center pt-5 pb-10 text-2xl font-black">Créer un compte</h1>
         <form method="POST" action="{{ route('register') }}" class="form-control">
             @csrf
 

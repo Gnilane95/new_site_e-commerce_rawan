@@ -2,18 +2,20 @@
     @include('partials.navbar._navbar')
     {{-- section product --}}
     <div class="my-28 mx-14 flex gap-10 text-gray-700">
-        {{-- @if (count($homme->images) != 0)
+        @if (count($homme->images) != 0)
             <div class="space-y-5 bg-gradient-to-b from-gray-50 via-gray-200 to-white px-5 py-36">
                 @foreach ($homme->images as $image)
                     <img src="{{ asset($image->slug) }}" alt="" class="w-28">
                 @endforeach
             </div>
-        @endif --}}
+        @endif
         <img src="{{ asset('storage/'.$homme->url_img) }}" alt="{{ $homme->name }}" class="max-w-sm">
         {{-- Infos card --}}
         <div class="">
             <h1 class="text-5xl pb-3">{{ $homme->name }}</h1>
-            <span class="bg-gray-400 px-5 py-2 rounded-lg font-bold">{{ $homme->category }}</span>
+            @if ($homme->category)  
+                <span class="bg-gray-400 px-5 py-2 rounded-lg font-bold">{{ $homme->category }}</span>
+            @endif
             <div class="flex space-x-3 items-center mt-3">
                 <div class="">
                     <i class="fa-regular fa-star"></i>
@@ -113,8 +115,8 @@
     <div class=" py-36 px-28">
         <div class="grid grid-cols-4 gap-10  ">
             @forelse ($allAbayasHommes as $abaya)
-                <a href="{{ route('bijoux.show', $abaya->id) }}">
-                    <x-cards.card :url_img="$bijou->url_img" :name="$abaya->name" :price="$abaya->price"/>
+                <a href="{{ route('hommes.show', $abaya->id) }}">
+                    <x-cards.card :url_img="$abaya->url_img" :name="$abaya->name" :price="$abaya->price"/>
                 </a>
             @empty
                 <p>Pas de bijoux disponibles</p>

@@ -6,6 +6,7 @@ use App\Models\Homme;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class HommeController extends Controller
 {
@@ -94,7 +95,6 @@ class HommeController extends Controller
     public function show(Homme $homme)
     {
         $allAbayasHommes = Homme::orderBy('created_at','desc')->paginate(4) ;
-        // dd($bijoux);
         if (Auth::check()) {
             $user = Auth::user();
             $userId=$user->id;
@@ -111,7 +111,7 @@ class HommeController extends Controller
      */
     public function edit(Homme $homme)
     {
-        return view('pages.edit-bijou', compact('homme'));
+        return view('pages.edit-abayaHomme', compact('homme'));
     }
 
     /**
@@ -121,9 +121,51 @@ class HommeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Homme $homme)
     {
-        //
+        if ($request->hasFile('url_img')) {
+            //Delete previous img
+            Storage::delete($homme->url_img);
+            //Store the new img
+            $homme->url_img = $request->file('url_img')->store('images');
+        }
+        $request->validate([
+            'name'=>'required|string|max:200',
+            'price'=>'required|numeric|',
+            'desc'=>'required|max:1000|string',
+            'stock'=>'required|integer',
+            'url_img'=>'required|image|sometimes|mimes:png,jpg,jpeg|max:5000',
+        ]);
+
+        $homme->update ([
+            'name'=>$request->name,
+            'price'=>$request->price,
+            'desc'=>$request->desc,
+            'stock'=>$request->stock,
+            'url_img'=>$homme->url_img,
+            'updated_at'=>now()
+        ]);
+
+        if($request->has('images')){
+            // 2-Stock all images selected in array
+            $imagesSelected = $request->file('images');
+            // 3- Loop storage each image
+            foreach ($imagesSelected as $image) {
+                // 4-Give a new name for each image
+                $image_name = md5(rand(1000, 10000)). '.' . strtolower($image->extension());
+                // 5-Set a passname
+                $path_upload = 'img/images';
+                $image->move(public_path($path_upload), $image_name);
+
+                Image::create([
+                    "slug"=>$path_upload .'/'.$image_name,
+                    "created_at"=>now(),
+                    "homme_id"=> $homme->id,
+                ]);
+            }
+        }
+
+        return redirect()->route('abayasHomme.all', $homme->id)->with('status', 'Abaya modifié');
     }
 
     /**
@@ -132,9 +174,10 @@ class HommeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Homme $homme)
     {
-        //
+        $homme->delete();
+        return back()->with('status', 'Abaya supprimé');
     }
 
     public function allAbayasHomme()

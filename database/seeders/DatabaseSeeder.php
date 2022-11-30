@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Avi;
 use App\Models\Bijou;
+use App\Models\Enfant;
 use App\Models\Femme;
 use App\Models\Homme;
 use App\Models\Image;
@@ -31,12 +32,6 @@ class DatabaseSeeder extends Seeder
         Avi::factory(5)->create();
         Femme::factory(5)->create();
         Homme::factory(5)->create();
-        // \App\Models\Post::factory(5)->create();
-        // Post::factory(30)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Enfant::factory(5)->create();
     }
 }

@@ -182,7 +182,6 @@ class BijouxController extends Controller
      */
     public function destroy(Bijou $bijoux)
     {
-        // dd($bijoux);
         $bijoux->delete();
         return back()->with('status', 'Bijou supprimé');
     }

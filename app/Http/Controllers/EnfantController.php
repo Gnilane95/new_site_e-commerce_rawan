@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Enfant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EnfantController extends Controller
 {
@@ -13,7 +15,13 @@ class EnfantController extends Controller
      */
     public function index()
     {
-        return view('pages.enfants');
+        $enfants = Enfant::orderBy('updated_at','desc')->paginate(8) ;
+        if (Auth::check()) {
+            $user = Auth::user();
+            $userId=$user->id;
+            return view('pages.enfants', compact('enfants'))->with("userId",$userId);
+        }
+        return view('pages.enfants', compact('enfants'));
     }
 
     /**

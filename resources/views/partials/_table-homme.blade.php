@@ -25,7 +25,7 @@
                 <td>{{ $homme->stock }}</td>
                 <td>{{ $homme->created_at->format('d/m/Y') }}</td>
                 <td class="text-center text-secondary-dark">
-                  <a href="{{ route('hommes.edit',$homme->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a href="{{ route('hommes.edit', $homme->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
                 <td class="text-center text-red-400">
                   <x-btn-deleteHomme :homme="$homme"/>

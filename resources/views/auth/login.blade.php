@@ -1,6 +1,10 @@
 <x-guest-layout title="Se connecter">
-    <h1 class="uppercase text-center mt-10 text-2xl font-black">Connexion</h1>
     <x-auth-card>
+        <a href="/">
+            <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="Logo Rawan" 
+            class="w-28 mx-auto">
+        </a>
+        <h1 class="uppercase text-center mb-10 mt-3 text-2xl font-black">Connexion</h1>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
