@@ -23,6 +23,7 @@ class AviController extends Controller
             'bijou_id' => $id,
             'femme_id' => $id,
             'homme_id' => $id,
+            'enfant_id' => $id,
             'created_at' => now(),
         ];
         //insert in table Avi

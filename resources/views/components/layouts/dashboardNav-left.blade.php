@@ -19,5 +19,8 @@
         <a href="{{ route('abayasHomme.all') }}" class="{{ $styleLink }}">
             Tous les abayas homme
         </a>
+        <a href="{{ route('vetEnfant.all') }}" class="{{ $styleLink }}">
+            Tous les vêtements enfant
+        </a>
     </div>
 </div>

@@ -59,6 +59,7 @@ Route::middleware(['admin'])->prefix('dashboard')->group(function(){
     Route::get('/all-argents',[BijouargentController::class, 'allArgents'])->name('argents.all');
     Route::get('/all-bijoux-personalisés',[BijoupersoController::class, 'allBijouxPerso'])->name('bijouxPerso.all');
     Route::get('/all-abayas-homme',[HommeController::class, 'allAbayasHomme'])->name('abayasHomme.all');
+    Route::get('/all-vetements-enfant',[EnfantController::class, 'allVetEnfant'])->name('vetEnfant.all');
 });
 
 Route::post('/avis/{id}', [AviController::class, 'store'])->name('avi.store');
