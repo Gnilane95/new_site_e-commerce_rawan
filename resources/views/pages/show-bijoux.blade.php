@@ -40,9 +40,7 @@
                     @endfor
                 </select>
             </div>
-            <button type="submit" class="py-4 px-4 mt-5 w-full rounded-lg text-xl bg-primary-dark border-none text-white">
-                Ajouter au panier
-            </button>
+            <x-btn-addCart :bijoux="$bijoux" />
         </div>
     </div>
 
@@ -121,11 +119,8 @@
                     <x-cards.card :url_img="$bijou->url_img" :name="$bijou->name" :price="$bijou->price"/>
                 </a>
             @empty
-                <p>Pas de bijoux disponibles</p>
+                <p>Aucune proposition</p>
             @endforelse
         </div>
-        {{-- <div class="flex justify-end">
-            {{ $allBijoux->links('pagination::tailwind') }}
-        </div> --}}
     </div>
 </x-layouts.main-layout>

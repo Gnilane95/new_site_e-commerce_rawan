@@ -16,6 +16,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BijouinoxController;
 use App\Http\Controllers\BijoupersoController;
 use App\Http\Controllers\BijouargentController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EnsCombController;
 use App\Http\Controllers\PantalonJeanController;
@@ -44,6 +45,9 @@ Route::resource('femmes', FemmeController::class);
 Route::resource('hommes', HommeController::class);
 Route::resource('enfants', EnfantController::class);
 Route::resource('posts', PostController::class);
+// cart routes
+Route::resource('carts', CartController::class);
+Route::delete('/cart/{rowId}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 Route::middleware(['admin'])->prefix('dashboard')->group(function(){
     Route::get('/',[DashboardController::class, 'index'])->name('dashboard');

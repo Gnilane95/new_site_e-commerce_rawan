@@ -7,6 +7,7 @@ use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class BijouxController extends Controller
 {
@@ -96,6 +97,7 @@ class BijouxController extends Controller
      */
     public function show(Bijou $bijoux)
     {
+        // dd(Cart::content());
         $allBijoux = Bijou::orderBy('created_at','desc')->paginate(4) ;
         // dd($bijoux);
         if (Auth::check()) {
