@@ -3,14 +3,29 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Mail\WelcommeUserMail;
 use App\Models\Avi;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user){
+            $data = $user->profile()->create([
+                'title' => 'Profile de' . $user->name
+            ]);
+            Mail::to($data->email)->send(new WelcommeUserMail());
+        });
+    }
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**

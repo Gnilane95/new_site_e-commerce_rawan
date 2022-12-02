@@ -1,7 +1,7 @@
 <x-layouts.main-layout title="Panier">
     @include('partials.navbar._navbar')
 
-    <div class="overflow-x-auto mx-28 my-28">
+    <div class="overflow-x-auto mx-28 my-28 shadow-lg">
         <table class="table w-full">
           <!-- head -->
           <thead>
@@ -25,14 +25,20 @@
                         </div>
                         <div class="">
                             <div class="font-bold">{{ $bijou->model->name }}</div>
-                            <div class="text-sm opacity-50">{{ $bijou->model->category }}</div>
+                            <div class="text-sm opacity-50">Catégorie : {{ $bijou->model->category }}</div>
                         </div>
                     </div>
                 </td>
                 <td>
                     <p>{{ $bijou->model->price }}</p>
                 </td>
-                <td>1</td>
+                <td>
+                    <select class="rounded-md" name="qty" id="qty">
+                        @for ($i = 1; $i <= 10; $i++)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                    </select>
+                </td>
                 <th>
                     <x-btn-deleteCart :bijou="$bijou"/>
                 </th>
