@@ -2,15 +2,24 @@
     @include('partials.navbar._navbar')
     <x-nav-femmes/>
     {{-- section product --}}
-    <div class="my-28 mx-14 flex gap-10 text-gray-700">
+    <div class="lg:my-28 sm:my-28 mx-14 lg:flex gap-10 text-gray-700">
+        {{-- for lg --}}
         @if (count($femme->images) != 0)
-            <div class="space-y-5 bg-gradient-to-b from-gray-50 via-gray-200 to-white px-5 py-36">
+            <div class="sm:hidden lg:flex lg:flex-col lg:space-y-5 lg:bg-gradient-to-b lg:from-gray-50 lg:via-gray-200 lg:to-white lg:px-5 lg:py-36">
                 @foreach ($femme->images as $image)
                     <img src="{{ asset($image->slug) }}" alt="" class="w-28">
                 @endforeach
             </div>
         @endif
-        <img src="{{ asset('storage/'.$femme->url_img) }}" alt="{{ $femme->name }}" class="max-w-sm">
+        <img src="{{ asset('storage/'.$femme->url_img) }}" alt="{{ $femme->name }}" class="lg:max-w-sm sm:rounded-lg lg:rounded-none">
+        {{-- for sm --}}
+        @if (count($femme->images) != 0)
+            <div class="lg:hidden sm:flex sm:justify-between sm:space-x-5 sm:bg-gradient-to-b sm:from-gray-50 sm:via-gray-200 sm:to-white sm:px-5 sm:py-5 sm:mb-14">
+                @foreach ($femme->images as $image)
+                    <img src="{{ asset($image->slug) }}" alt="" class="w-28">
+                @endforeach
+            </div>
+        @endif
         {{-- Infos card --}}
         <div class="">
             <h1 class="text-5xl pb-3">{{ $femme->name }}</h1>
@@ -46,8 +55,8 @@
     {{-- Section avis --}}
     <div class="mb-28 bg-gray-100 py-10">
         <h2 class="text-center pb-10 text-2xl text-primary-dark font-bold">Avis clients</h2>
-        <div class="grid grid-cols-2">
-            <div class="px-20">
+        <div class="lg:grid lg:grid-cols-2">
+            <div class="px-20 sm:pb-10 lg:pb-0">
                 @forelse ($femme->avis as $avi)
                     <div class="mb-5">
                         <p class="">
@@ -69,7 +78,7 @@
                     <p class="">Soyez le premier à donner votre avis</p>
                 @endforelse
             </div>
-            <div class="px-20 border-l-4 border-b-4 pb-5 border-white">
+            <div class="px-20 border-l-4 border-b-4 pb-5 lg:border-white sm:border-none">
                 <p class="text-xl font-bold text-gray-700 pb-5">Ajouter un avis</p>
                 <form action="{{ route('avi.store', $femme->id) }}" method="POST">
                     @csrf
@@ -109,20 +118,4 @@
             </div>
         </div>
     </div>
-
-    {{-- Voir aussi --}}
-    {{-- <div class=" py-36 px-28">
-        <div class="grid grid-cols-4 gap-10  ">
-            @forelse ($bijoux as $bijou)
-                <a href="{{ route('bijoux.show', $bijou->id) }}">
-                    <x-cards.bijou-card :url_img="$bijou->url_img" :name="$bijou->name" :price="$bijou->price"/>
-                </a>
-            @empty
-                <p>Pas de bijoux disponibles</p>
-            @endforelse
-        </div>
-        <div class="flex justify-end">
-            {{ $bijoux->links('pagination::tailwind') }}
-        </div>
-    </div> --}}
 </x-layouts.main-layout>

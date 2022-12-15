@@ -15,9 +15,6 @@
                     @include('partials._table-femmes')
                 </div>
             </div>
-            {{-- <div class="">
-                {{ $bijoux->links('pagination::tailwind') }}
-            </div> --}}
         </div>
     </div>
 </x-layouts.layout-dashboard>

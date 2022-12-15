@@ -98,7 +98,8 @@ class EnfantController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             $userId=$user->id;
-            return view('pages.show-vetEnfant',compact('enfant','allVetEnfants'))->with("userId",$userId);
+            return view('pages.show-vetEnfant',compact('enfant','allVetEnfants'))
+                ->with("userId",$userId);
         }
         return view('pages.show-vetEnfant', compact('enfant', 'allVetEnfants'));
     }

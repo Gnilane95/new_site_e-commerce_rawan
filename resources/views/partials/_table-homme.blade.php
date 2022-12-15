@@ -33,7 +33,7 @@
             </tr>
         @empty
             <tr>
-                <td>Pas de posts disponibles</td>
+                <td>Pas de abayas hommes disponibles</td>
             </tr>
         @endforelse
     </tbody>

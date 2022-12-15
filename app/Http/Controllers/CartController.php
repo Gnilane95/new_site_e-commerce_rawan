@@ -41,15 +41,7 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $duplicata = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id === $request->bijoux_id;
-        });
-
-        if($duplicata->isNotEmpty()) {
-            return back()->with('status', 'Bijou déjà ajouté');
-        }
-        
+    {   
         $bijou = Bijou::find($request->bijoux_id);
         Cart::add($bijou->id, $bijou->name, 1, $bijou->price)
             ->associate('App\Models\Bijou') ;
@@ -100,6 +92,8 @@ class CartController extends Controller
     public function destroy($rowId)
     {
         Cart::remove($rowId);
-        return redirect()->route('carts.index')->with('status', 'Le produit a été supprimé');
+        return redirect()
+            ->route('carts.index')
+            ->with('status', 'Le produit a été supprimé');
     }
 }

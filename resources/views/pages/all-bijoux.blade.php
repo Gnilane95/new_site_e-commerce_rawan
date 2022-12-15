@@ -1,5 +1,5 @@
 <x-layouts.layout-dashboard title="Liste mes bijoux">
-    <div class="flex">
+    <div class="lg:flex sm:gridg sm:grid-cols-2g">
         <x-layouts.dashboardNav-left/>
         <div class="w-full bg-gray-100">
             <x-dashboard-top currentPage="Tous mes bijoux"/>

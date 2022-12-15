@@ -21,7 +21,6 @@ class EnsureIsAdmin
         if(Auth::check() && $request->user()->is_admin === 1 ){
             return $next($request); 
         } else {
-            // abort(403);
             return redirect()->route('login');
         }
 

@@ -19,7 +19,7 @@ class PostBlogFactory extends Factory
         return [
             'title'=> fake()->sentence(3),
             'subtitle'=>fake()->sentence(5),
-            'content' => fake()->paragraph(8),
+            'content' => fake()->paragraph(5),
             'author' => fake()->name(),
             'url_img' => fake()->imageUrl(640, 480, 'persons', true),
         ];

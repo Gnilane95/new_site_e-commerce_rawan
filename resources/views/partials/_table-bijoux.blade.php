@@ -35,7 +35,7 @@
             </tr>
         @empty
             <tr>
-                <td>Pas de posts disponibles</td>
+                <td>Pas de bijoux disponibles</td>
             </tr>
         @endforelse
     </tbody>

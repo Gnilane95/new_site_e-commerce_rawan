@@ -5,7 +5,7 @@
     'title',
     'content',
 ])
-<div class=" max-w-lg h-[500px] mb-32">
+<div class=" max-w-lg h-[500px] mb-28">
   <img src="{{ asset('storage/'.$url_img) }}" alt="{{ $title }}" class="w-full shadow-md h-64 rounded-lg"/>
   <div class="pt-5">
     <p>

@@ -66,8 +66,8 @@ class BijouxController extends Controller
             'created_at'=>now()
         ]);
 
-         // 1-Verify if user select image or not
-         if($request->has('images')){
+        // 1-Verify if user select image or not
+        if($request->has('images')){
             // 2-Stock all images selected in array
             $imagesSelected = $request->file('images');
             // 3- Loop storage each image
@@ -97,9 +97,7 @@ class BijouxController extends Controller
      */
     public function show(Bijou $bijoux)
     {
-        // dd(Cart::content());
         $allBijoux = Bijou::orderBy('created_at','desc')->paginate(4) ;
-        // dd($bijoux);
         if (Auth::check()) {
             $user = Auth::user();
             $userId=$user->id;
@@ -116,7 +114,6 @@ class BijouxController extends Controller
      */
     public function edit(Bijou $bijoux)
     {
-        // dd($bijoux->all());
         return view('pages.edit-bijou', compact('bijoux'));
     }
 

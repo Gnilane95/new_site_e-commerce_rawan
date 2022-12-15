@@ -22,7 +22,7 @@
             </tr>
         @empty
             <tr>
-                <td>Pas de users</td>
+                <td>Aucun utilisateur enregistré</td>
             </tr>
         @endforelse
     </tbody>

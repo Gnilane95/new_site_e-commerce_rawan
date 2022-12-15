@@ -1,7 +1,7 @@
 @php
     $styleLink="font-bold hover:text-white block pb-5 text-white text-lg"
 @endphp
-<div class="bg-gray-700 px-5 min-h-screen sticky w-[25%] py-4">
+<div class="bg-gray-700 px-5 min-h-screen sticky lg:w-[25%] sm:w-[70%] py-4">
     <a href="/dashboard">
         <div class="flex items-center  space-x-1">
             <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="" class="w-14">

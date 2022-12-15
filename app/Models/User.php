@@ -14,18 +14,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::created(function ($user){
-            $data = $user->profile()->create([
-                'title' => 'Profile de' . $user->name
-            ]);
-            Mail::to($data->email)->send(new WelcommeUserMail());
-        });
-    }
-
     use HasApiTokens, HasFactory, Notifiable;
 
     /**

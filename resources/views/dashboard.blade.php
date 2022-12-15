@@ -2,7 +2,7 @@
     <div class="flex">
         <x-layouts.dashboardNav-left/>
         <div class="w-full bg-gray-100">
-            <div class="bg-white border-b-4 border-primary-dark p-7 flex justify-between ">
+            <div class="bg-white border-b-4 border-primary-dark p-7 flex justify-between items-center">
                 <p class="font-bold text-secondary-dark">Dashboard/
                     <span class="text-gray-500">Accueil</span>
                 </p>

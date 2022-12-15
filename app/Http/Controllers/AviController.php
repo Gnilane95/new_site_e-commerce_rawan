@@ -28,7 +28,6 @@ class AviController extends Controller
         ];
         //insert in table Avi
         Avi::create($data);
-        // dd($data);
 
         return back();
     }

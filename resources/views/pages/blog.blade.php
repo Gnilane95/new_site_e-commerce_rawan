@@ -1,6 +1,7 @@
 <x-layouts.main-layout title="Blog">
     @include('partials.navbar._navbar')
-    <div class="my-28 mx-28 flex justify-center gap-10">
+    <h1 class="lg:hidden text-center text-4xl text-primary-dark bg-gray-700 font-bold py-5">Blog</h1>
+    <div class="my-28 lg:mx-28 sm:mx-5 flex justify-center lg:gap-10 sm:gap-5">
         <div class="w-1/2">
             @forelse ($posts as $post)
                 <a href="{{ route('posts.show', $post->id) }}">
@@ -10,7 +11,7 @@
                 <p>Aucun article publié</p>
             @endforelse
         </div>
-        <div class="w-1/4 bg-gray-200 p-7 rounded-md text-gray-700">
+        <div class="lg:w-1/4 bg-gray-200 p-7 rounded-md text-gray-700">
             {{-- Newsletter --}}
             <div class="form-control">
                 <label class="label">

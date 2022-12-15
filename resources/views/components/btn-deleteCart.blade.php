@@ -1,5 +1,7 @@
 <div class="">
-    <form action="{{ route('cart.destroy', $bijou->rowId) }}" method="POST" onsubmit="return confirm('Es-tu sûr de vouloir supprimer ce bijou ?')">
+    <form action="{{ route('cart.destroy', $bijou->rowId) }}" 
+        method="POST" 
+        onsubmit="return confirm('Es-tu sûr de vouloir supprimer ce bijou du panier ?')">
         @csrf
         @method('DELETE')
         <button class="" type="submit">        

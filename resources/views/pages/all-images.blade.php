@@ -9,9 +9,6 @@
                     @include('partials._table-images')
                 </div>
             </div>
-            {{-- <div class="">
-                {{ $bijoux->links('pagination::tailwind') }}
-            </div> --}}
         </div>
     </div>
 </x-layouts.layout-dashboard>

@@ -33,7 +33,7 @@
             </tr>
         @empty
             <tr>
-                <td>Pas de vêtements</td>
+                <td>Pas de vêtements enfants disponibles</td>
             </tr>
         @endforelse
     </tbody>
