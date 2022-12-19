@@ -1,5 +1,5 @@
-<div class="h-screen ">
-    <div class="flex min-h-screen absolute w-full ">
+<div class="h-screen">
+    <div class="flex min-h-screen absolute w-full">
         <div class="bg-[url('/public/img/bijoux.jpg')] w-[50%] bg-cover bg-center"></div>
         <div class="bg-[url('/public/img/abaya-femme.jpg')] w-[50%] bg-cover bg-center"></div>
     </div>

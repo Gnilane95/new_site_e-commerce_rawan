@@ -11,6 +11,10 @@ body{
     justify-content: center;
     align-items: center;
 }
+/* ul li a{
+    @apply rounded hover:bg-slate-300 transition-all duration-300
+} */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

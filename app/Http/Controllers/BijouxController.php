@@ -48,7 +48,7 @@ class BijouxController extends Controller
     {
         $request->validate([
             'name'=>'required|string|max:200',
-            'price'=>'required',
+            'price'=>'required|numeric',
             'desc'=>'required|max:1000|string',
             'stock'=>'required|integer',
             'category'=>'required',

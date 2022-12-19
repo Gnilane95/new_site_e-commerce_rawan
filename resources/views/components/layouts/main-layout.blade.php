@@ -9,19 +9,21 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     {{-- link font awesome icons --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- script barmenu --}}
+    <script src="https://kit.fontawesome.com/163e4be023.js" crossorigin="anonymous"></script>
     {{-- link google fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-
 
     <title>Rawan | {{ $title }}</title>
     {{-- import tailwind --}}
     @vite('resources/css/app.css')
 </head>
+<style>
+    #check:checked ~ ul{
+        left: 0;
+    }
+</style>
 <body>
-    {{-- @if (\Route::current()->getName !='home')
-        @include('partials.navbar._navbar')
-    @endif --}}
     @include('partials._session')
     
     {{ $slot }}
@@ -30,12 +32,5 @@
     <div class="bg-primary">
         @include('partials.footer._footer')
     </div>
-    {{-- <script>
-        function Menu(e) {
-            e.name === 'menu' ? e.name ==='close' : e.name === 'name'
-        }
-    </script> --}}
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    @stack("other-script")
 </body>
 </html>
