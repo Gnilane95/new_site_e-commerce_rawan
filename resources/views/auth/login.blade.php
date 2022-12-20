@@ -41,7 +41,7 @@
                 
             </div>
 
-            <div class="flex items-center justify-between mt-4">
+            <div class="md:flex items-center justify-between mt-4">
                 <button type="submit" class="btn bg-primary border-none py-1 px-3 rounded-lg text-white">
                     Se connecter
                 </button>

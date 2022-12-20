@@ -118,15 +118,15 @@
     </div>
 
     {{-- Section Voir aussi --}}
-    <div class="py-36 lg:px-28 xl:px-10 sm:px-7">
+    <div class=" py-36 lg:px-28 xl:px-10 sm:px-7">
         <h1 class="text-5xl pb-16 font-bold text-center">Produits similaires</h1>
-        <div class="md:grid xl:grid-cols-4 lg:gap-10 sm:grid md:grid-cols-2 md:gap-8">
-            @forelse ($allVetEnfants as $enfant)
-                <a href="{{ route('enfants.show', $enfant->id) }}">
-                    <x-cards.card :url_img="$enfant->url_img" :name="$enfant->name" :price="$enfant->price"/>
+        <div class="md:grid xl:grid-cols-4 lg:gap-10 sm:grid md:grid-cols-2 md:gap-8 ">
+            @forelse ($allBijoux as $bijou)
+                <a href="{{ route('bijoux.show', $bijou->id) }}">
+                    <x-cards.card :url_img="$bijou->url_img" :name="$bijou->name" :price="$bijou->price"/>
                 </a>
             @empty
-                <p>Aucune proposition disponible !</p>
+                <p>Aucune proposition</p>
             @endforelse
         </div>
     </div>
