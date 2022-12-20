@@ -1,15 +1,14 @@
 @php
     $styleLink="font-bold hover:text-orange-600 hover:underline underline-offset-4"
 @endphp
-<nav class="flex justify-between lg:sticky lg:top-0 lg:z-50 lg:bg-white shadow-lg px-10 py-5 items-center font-bold">
+<nav class="flex justify-between lg:sticky lg:top-0 lg:z-50 lg:bg-white shadow-lg md:px-10 sm:px-3 py-5 items-center font-bold">
     {{-- logo --}}
     <a href="/">
         <img src="{{asset('storage/images/logo-rawan-removebg-preview.png') }}" alt="Logo Rawan" class="w-20">
     </a>
     
-    
     {{-- other items sm --}}
-    <div class="sm:flex sm: sm:items-center lg:hidden">
+    <div class="sm:flex sm: sm:items-center xl:hidden">
         <a href="" class="btn btn-ghost btn-circle">
             <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
         </a>
@@ -60,11 +59,11 @@
     </div>
 
     <input type="checkbox" id="check" class="hidden" >
-    <label for="check" class="lg:hidden sm:text-2xl sm:loading-[80px]">
+    <label for="check" class="xl:hidden sm:text-2xl sm:loading-[80px]">
         <i class="fa-solid fa-bars"></i>
     </label>
     {{-- nav items --}}
-    <ul class="lg:space-x-5 lg:flex lg:space-y-0  lg:bg-transparent lg:opacity-100 lg:p-0 lg:z-auto lg:static lg:text-center lg:text-gray-600 sm:fixed sm:right-0 sm:top-20 lg:top-0 sm:leading-[80px] sm:z-50 sm:mr-10 lg:mr-0 sm:space-x-4 sm:rounded sm:h-[100vh] lg:h-fit sm:w-[100%] lg:w-fit sm:text-center sm:transition-all sm:duration-300 lg:transition-none sm:bg-slate-50 sm:left-[-100%] lg:left-0">
+    <ul class="xl:space-x-5 xl:flex xl:space-y-0  xl:bg-transparent xl:opacity-100 xl:p-0 xl:z-auto xl:static xl:text-center xl:text-gray-600 sm:fixed sm:right-0 sm:top-20 xl:top-0 sm:leading-[80px] sm:z-50 sm:mr-10 xl:mr-0 sm:space-x-4 sm:rounded sm:h-[100vh] xl:h-fit sm:w-[100%] xl:w-fit sm:text-center sm:transition-all sm:duration-300 xl:transition-none sm:bg-slate-50 sm:left-[-100%] xl:left-0">
         <li>
             <a href="{{ route('bijoux.index') }}" class="hover:text-primary">Bijoux</a>
         </li>
@@ -81,8 +80,8 @@
             <a href="{{ route('posts.index') }}" class="hover:text-primary">blog</a>
         </li>
     </ul>
-    {{-- other items lg --}}
-    <div class="lg:flex lg:items-center sm:hidden">
+    {{-- other items xl --}}
+    <div class="xl:flex xl:items-center sm:hidden">
         <a href="" class="btn btn-ghost btn-circle">
             <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
         </a>
@@ -128,9 +127,3 @@
         @endauth
     </div>
 </nav>
-{{-- <script>
-    function Menu() {
-        let list = document.querySelector('ul');
-        e.name === 'menu' ? (e.name = "close" list?.classList?.add('top-[80px]'), list?.classList?.add('opacity-100')) : (e.name = "menu", list?.classList?.remove('top-[80px]'), list?.classList?.remove('opacity-100'))
-    }
-</script> --}}

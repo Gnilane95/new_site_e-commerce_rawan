@@ -1,4 +1,4 @@
-<footer class="footer py-20 bg-base-300 text-base-content px-20">
+<footer class="footer py-20 bg-base-300 text-base-content md:px-20 sm:px-7">
   <div>
     <span class="uppercase text-gray-700 mb-5 font-bold">Menu de pied de page</span> 
     <a class="link link-hover">Conditions de vente</a> 

@@ -1,37 +1,37 @@
 <x-layouts.main-layout title="Abayas Hommes">
     @include('partials.navbar._navbar')
     {{-- section product --}}
-    <div class="lg:my-28 sm:my-28 mx-14 lg:flex gap-10 text-gray-700">
+    <div class="xl:my-28 sm:mb-28 xl:flex gap-10d text-gray-700">
         {{-- for lg --}}
         @if (count($homme->images) != 0)
-            <div class="sm:hidden lg:flex lg:flex-col lg:space-y-5 lg:bg-gradient-to-b lg:from-gray-50 lg:via-gray-200 lg:to-white lg:px-5 lg:py-36">
+            <div class="sm:hidden xl:flex xl:flex-col xl:space-y-5 xl:bg-gradient-to-b xl:from-gray-50 xl:via-gray-200 xl:to-white xl:px-5 xl:py-36">
                 @foreach ($homme->images as $image)
                     <img src="{{ asset($image->slug) }}" alt="" class="w-28">
                 @endforeach
             </div>
         @endif
-        <img src="{{ asset('storage/'.$homme->url_img) }}" alt="{{ $homme->name }}" class="lg:max-w-sm lg:mb-0 sm:mb-10">
+        <img src="{{ asset('storage/'.$homme->url_img) }}" alt="{{ $homme->name }}" class="sm:max-w-[80%] md:max-w-sm lg:max-w-md md:mx-10 md:my-5 sm:m-5 lg:mx-48f xl:mx-5">
         {{-- for sm --}}
         @if (count($homme->images) != 0)
-            <div class="lg:hidden sm:flex sm:justify-between sm:space-x-5 sm:bg-gradient-to-b sm:from-gray-50 sm:via-gray-200 sm:to-white sm:px-5 sm:py-5 sm:mb-14">
+            <div class="xl:hidden sm:flex sm:justify-around sm:bg-gradient-to-b sm:from-gray-50 sm:via-gray-200 sm:to-white sm:px-5 lg:px-16 sm:py-5 sm:mb-14">
                 @foreach ($homme->images as $image)
-                    <img src="{{ asset($image->slug) }}" alt="" class="w-28">
+                    <img src="{{ asset($image->slug) }}" alt="" class="md:w-28 sm:w-5">
                 @endforeach
             </div>
         @endif
         {{-- Infos card --}}
-        <div class="">
-            <h1 class="text-5xl pb-3">{{ $homme->name }}</h1>
+        <div class="sm:mx-5 md:mx-10">
+            <h1 class="lg:text-5xl sm:text-xl md:text-3xl pb-3">{{ $homme->name }}</h1>
             @if ($homme->category)  
                 <span class="bg-gray-400 px-5 py-2 rounded-lg font-bold">{{ $homme->category }}</span>
             @endif
-            <div class="flex space-x-3 items-center mt-3">
+            <div class="md:flex md:space-x-3 items-center mt-3">
                 <div class="">
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star sm:text-xs md:text-lg"></i>
+                    <i class="fa-regular fa-star sm:text-xs md:text-lg"></i>
+                    <i class="fa-regular fa-star sm:text-xs md:text-lg"></i>
+                    <i class="fa-regular fa-star sm:text-xs md:text-lg"></i>
+                    <i class="fa-regular fa-star sm:text-xs md:text-lg"></i>
                 </div>
                 <p class="text-primary-light">Soyez le premier à donner votre avis</p>
             </div>
@@ -56,8 +56,8 @@
     {{-- Section avis --}}
     <div class="mb-28 bg-gray-100 py-10">
         <h2 class="text-center pb-10 text-2xl text-primary-dark font-bold">Avis clients</h2>
-        <div class="lg:grid lg:grid-cols-2">
-            <div class="px-20 sm:pb-10 lg:pb-0">
+        <div class="xl:flex xl:gap-20">
+            <div class="sm:px-5 md:px-20 xl:pl-10 sm:pb-10 lg:pb-0">
                 @forelse ($homme->avis as $avi)
                     <div class="mb-5">
                         <p class="">
@@ -79,7 +79,7 @@
                     <p class="">Soyez le premier à donner votre avis</p>
                 @endforelse
             </div>
-            <div class="px-20 border-l-4 border-b-4 pb-5 lg:border-white sm:border-none">
+            <div class="sm:px-5 md:px-20 xl:pr-10 border-l-4 border-b-4 pb-5 lg:border-white sm:border-none">
                 <p class="text-xl font-bold text-gray-700 pb-5">Ajouter un avis</p>
                 <form action="{{ route('avi.store', $homme->id) }}" method="POST">
                     @csrf
@@ -98,19 +98,19 @@
                         {{-- avis --}}
                         <div class="">
                             <label for="avis" class="font-semibold text-gray-500 pb-2">Votre avis</label>
-                            <textarea name="avis" id="" cols="30" rows="10" class="w-[500px] block"></textarea>
+                            <textarea name="avis" id="" cols="30" rows="10" class="sm:w-[250px] md:w-[300px] lg:w-[500px] block"></textarea>
                             <x-error-msg name="avis"/>
                         </div>
                         {{-- name --}}
                         <div class="mt-5">
                             <label for="name" class="font-semibold text-gray-500 pb-2">Nom</label>
-                            <input type="text" name="name" id="" class="w-[500px] block">
+                            <input type="text" name="name" id="" class="sm:w-[250px] md:w-[300px] lg:w-[500px] block">
                             <x-error-msg name="name"/>
                         </div>
                         {{-- email --}}
                         <div class="mt-5">
                             <label for="email" class="font-semibold text-gray-500 pb-2">E-mail</label>
-                            <input type="text" name="email" id="" class="w-[500px] block">
+                            <input type="text" name="email" id="" class="sm:w-[250px] md:w-[300px] lg:w-[500px] block">
                             <x-error-msg name="email"/>
                         </div>
                     </div>
@@ -121,9 +121,9 @@
     </div>
 
     {{-- Voir aussi --}}
-    <div class=" py-36 lg:px-28 sm:px-7">
+    <div class="py-36 lg:px-28 xl:px-10 sm:px-7">
         <h1 class="text-5xl pb-16 font-bold text-center">Produits similaires</h1>
-        <div class="lg:grid lg:grid-cols-4 lg:gap-10 sm:grid sm:grid-cols-2 sm:space-x-7 ">
+        <div class="md:grid xl:grid-cols-4 lg:gap-10 sm:grid md:grid-cols-2 md:gap-8">
             @forelse ($allAbayasHommes as $abaya)
                 <a href="{{ route('hommes.show', $abaya->id) }}">
                     <x-cards.card :url_img="$abaya->url_img" :name="$abaya->name" :price="$abaya->price"/>

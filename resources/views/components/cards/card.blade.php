@@ -3,7 +3,7 @@
     'name',
     'price',
 ])
-<div class=" lg:w-64 md:max-w-lg h-[420px] mb-10 shadow-lg">
+<div class=" lg:max-w-lg md:max-w-xl  h-[420px] mb-10 shadow-lg">
     <img src="{{ asset('storage/'.$url_img) }}" alt="{{ $name }}" class="w-full shadow-md h-64"/>
     <div class="px-3 pt-5 pb-10">
       <h2 class="text-md font-bold text-gray-600 pt-1">{{ $name }}</h2>
